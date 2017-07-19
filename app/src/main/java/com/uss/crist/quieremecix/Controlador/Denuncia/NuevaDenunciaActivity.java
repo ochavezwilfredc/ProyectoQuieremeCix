@@ -14,14 +14,18 @@ import android.widget.Toast;
 import com.uss.crist.quieremecix.Controlador.LoginActivity;
 import com.uss.crist.quieremecix.Controlador.RegistrarActivity;
 import com.uss.crist.quieremecix.R;
+import com.uss.crist.quieremecix.Servicios.Servicios;
 
 public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnClickListener{
     private EditText textoTitulo, textoLugar, textoRaza, textoColor, textoDescripcion,textoTipoMasc;
     private Button btn_tipoMascota;
+    Servicios servicios;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nuena_denuncia);
+        servicios = new Servicios();
+
         textoTitulo = (EditText)findViewById(R.id.texto_tituloN);
         textoLugar = (EditText)findViewById(R.id.texto_LugarN);
         textoRaza = (EditText)findViewById(R.id.texto_RazaN);
@@ -42,12 +46,27 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
                 break;
 
             case R.id.btn_aceptar_nuevaD:
+                if (validar()){
+                    servicios.mensaje(NuevaDenunciaActivity.this,"Todo bien");
+                }
                 break;
 
             case R.id.btn_cancelar_nuevaD:
                 break;
         }
     }
+
+    public boolean validar(){
+        boolean ok=false;
+        if (!servicios.validarNombre(textoTitulo.getText().toString())){
+            textoTitulo.setError(getString(R.string.error_titulo));
+            textoTitulo.findFocus();
+        }else{
+            ok=true;
+        }
+        return ok;
+    }
+
 
     public AlertDialog salir() {
         AlertDialog.Builder builder = new AlertDialog.Builder(NuevaDenunciaActivity.this);
