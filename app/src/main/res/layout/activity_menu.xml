@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:padding="10dp"
+    tools:context="com.uss.crist.quieremecix.Controlador.MenuActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/rl_contenedor1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        >
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="180dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="false"
+            app:srcCompat="@drawable/ong" />
+
+        <ScrollView
+            android:layout_below="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rl_contenedor2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageView"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:padding="20dp">
+
+                <Button
+                    android:id="@+id/btn_perfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:width="200dp"
+                    android:height="36dp"
+                    android:background="@color/teal"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:text="Perfil"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_adoptar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btn_perfil"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:width="200dp"
+                    android:height="36dp"
+                    android:background="@color/teal"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:text="Adoptame"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_denuncias"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btn_adoptar"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:width="200dp"
+                    android:height="36dp"
+                    android:background="@color/teal"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:text="Denuncia"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_unete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btn_denuncias"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:width="200dp"
+                    android:height="36dp"
+                    android:background="@color/teal"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:text="Unete"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+
+
+                <Button
+                    android:id="@+id/btn_reflexiones"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btn_unete"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:width="200dp"
+                    android:height="36dp"
+                    android:background="@color/teal"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:text="Reflexiones"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_ubicacion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btn_unete"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:width="200dp"
+                    android:height="36dp"
+                    android:background="@color/teal"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:text="Ubicación"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_compartir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btn_ubicacion"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:width="200dp"
+                    android:height="36dp"
+                    android:background="@color/teal"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:text="Compartir"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btn_salir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btn_compartir"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="8dp"
+                    android:width="200dp"
+                    android:height="36dp"
+                    android:background="@color/teal"
+                    android:drawablePadding="8dp"
+                    android:gravity="center"
+                    android:text="Salir"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+        </ScrollView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

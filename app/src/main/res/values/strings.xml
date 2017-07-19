@@ -1,0 +1,100 @@
+<resources>
+    <string name="app_name">QuiéremeCix</string>
+    <string name="info_tituloRecuperarPass">Cambiar Contraseña</string>
+    <string name="app_confirmar_pass">Confirmar Contraseña</string>
+    <string name="app_ingresar_pass">Ingresar Contraseña</string>
+
+    <string name="app_crearcuenta">CREAR CUENTA</string>
+    <!-- Strings de diálogo personalizado -->
+    <string name="info_text">Necesitas tener creada una cuenta para iniciar la aplicación</string>
+    <string name="crear_boton">CREAR CUENTA</string>
+    <string name="nombre_input">Email</string>
+    <string name="contrasena_input">Constraseña</string>
+    <string name="recordar_check">Recordarme</string>
+    <string name="olvidar_text">¿Olvidaste tu Contraseña?</string>
+    <string name="entrar_boton">INICIAR SESIÓN</string>
+    <string name="login_boton">INICIAR SESIÓN ó REGISTRARSE</string>
+
+    <!-- Strings de crear cuenta -->
+    <string name="et_nombre_apellido">Nombre y Apellidos</string>
+    <string name="error_nombre">Nombre y apellidos ingresado incorrecto</string>
+    <string name="et_dni">DNI</string>
+    <string name="error_dni">DNI ingresado incorrecto</string>
+    <string name="et_email">Correo</string>
+    <string name="error_email">Email ingreso incorrecto</string>
+    <string name="et_clave">Contraseña</string>
+    <string name="error_passwor">Contraseña ingresada incorrecta</string>
+    <string name="et_telefono">Telefono</string>
+    <string name="error_telefono">Telefono ingresado incorrecto</string>
+    <string name="et_sexo">Sexo</string>
+    <string name="error_fechaNac"> Seleccione una fecha</string>
+
+    <string-array name="sexo">
+        <item>Hombre</item>
+        <item>Mujer</item>
+    </string-array>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hola fragmento en blanco</string>
+    <string name="title_activity_menuctivity">MENU</string>
+    <string name="title_recuperar_cuenta">¿Has olvidado tu contraseña?</string>
+
+    <string name="navigation_drawer_open">Abrir el cajón de navegación</string>
+    <string name="navigation_drawer_close">Cerrar el cajón de navegación</string>
+
+    <string name="action_settings">Ajustes</string>
+
+
+    <!-- Activity Login -->
+    <string name="prompt_user">Email</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in">Iniciar Sesión</string>
+    <string name="action_sign_in_short">Registrarse</string>
+    <string name="error_invalid_email">Esta dirección de correo electrónico no es válida.</string>
+    <string name="error_invalid_password">Esta contraseña es demasiado corta</string>
+    <string name="error_incorrect_password">Esta contraseña es incorrecta</string>
+    <string name="error_field_required">este campo es requerido</string>
+    <string name="permission_rationale">"Se necesitan permisos de contactos para proporcionar terminaciones de correo electrónico."
+    </string>
+
+    <string name="alert_not_found_email">Correo electrónico y Contraseña incorrecto</string>
+
+
+    <string name="info_tituloRec">Recupera tu cuenta</string>
+    <string name="info_textRecuperar">Introduce el correo electrónico para buscar tu cuenta.</string>
+
+
+    <string name="hint_password">Contraseña</string>
+    <string name="hint_password_comp">Confirmar Contraseña</string>
+    <string name="error_confirmar_pass">Las contraseñas no coinciden</string>
+    <string name="name_actualizar_perfil">Actualizar Perfil</string>
+    <string name="name_perfil">Perfil</string>
+    <string name="name_actualizar_password">Actualizar Password</string>
+    <string name="title_activity_ubicacion">Ubicación</string>
+    <string name="quiereme_full_snippet">Somos seres humanos como tu, con la misma voluntad y responsabilidad que tu,
+                                        de Amar a los animales mas necesitados.</string>
+    <string name="name_registrar_usuario">Nuevo Usuario</string>
+    <string name="et_clave_confirmacion">Confirmar Contraseña</string>
+    <string name="error_incorrect_password_iquals">Las contraseñas no coinciden</string>
+    <string name="info_unuete">Necesitamos personas como tu con mucho amor y
+        responsabilidad por los animales que deseen y puedan asistir a
+        las reuniones,  los cuidados, limpieza, gestión de las actividades,
+        atención de los animales, etc.</string>
+    <string name="info_estadoP">Si pertenece a la ONG</string>
+    <string name="info_estadoN">No pertenece a la ONG</string>
+    <string name="nampe_denuncia">Lista de Denuncias</string>
+    <string name="error_invalid_phone">Error telefono ingresado incorrecto</string>
+    <string name="name_menu_principal">Menu</string>
+    <string name="error_incorrect_password_vacio">Error campo obligatorio</string>
+    <string name="app_name_detalle_denuncia">Detalle de Denuncia</string>
+    <string name="app_name_nueva_denuncia">Nueva Denuncia</string>
+    <string name="textoTitulo">Ingrese el título</string>
+    <string name="textoLugar">Ingrese el lugar</string>
+    <string name="textoRaza">Ingrese la raza de su mascota</string>
+    <string name="textoColor">Ingrese el color de su mascota</string>
+    <string name="textoDescripcion">Ingrese una descripción</string>
+    <string name="tipo_mascota">Tipo de mascota</string>
+    <string name="TextoTipoMacota">Ingrese Tipo de Mascota</string>
+
+</resources>

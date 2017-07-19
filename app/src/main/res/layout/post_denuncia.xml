@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:foreground="?attr/selectableItemBackground"
+    android:minHeight="?android:attr/listPreferredItemHeight">
+
+    <TextView
+        android:id="@+id/textoTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="false"
+        android:layout_centerInParent="false"
+        android:layout_centerVertical="false"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/imagenPost"
+        android:text="Titulo"
+        android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/black"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textoAutor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textoTitulo"
+        android:layout_below="@+id/textoTitulo"
+        android:text="Autor"
+        android:textSize="12sp" />
+
+    <ImageView
+        android:id="@+id/imagenPost"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_prueba_detalle"
+        android:transitionName="shared_image" />
+
+
+    <TextView
+        android:id="@+id/textoRaza"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imagenPost"
+        android:layout_toEndOf="@+id/imagenPost"
+        android:layout_toRightOf="@+id/imagenPost"
+        android:padding="16dp"
+        android:text="Raza"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="12sp" />
+
+    <RatingBar
+        android:id="@+id/rating"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:isIndicator="true"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:progressTint="#FDDB39"
+        android:rating="2"
+        android:secondaryProgressTint="#FDDB39"
+        android:layout_below="@+id/textoAutor"
+        android:layout_alignLeft="@+id/textoAutor"
+        android:layout_alignStart="@+id/textoAutor" />
+
+</RelativeLayout>

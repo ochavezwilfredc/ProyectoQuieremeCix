@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00796B</color>
+    <color name="colorPrimaryDark">#009688</color>
+    <color name="colorAccent">#FFC107</color>
+
+    <color name="window_background">#EEEEEE</color>
+
+    <color name="primaryDarkColor">#00796B</color>
+    <color name="primaryColor">#009688</color>
+    <color name="accentColor">#FFC107</color>
+
+    <item name="blue" type="color">#2196f3</item>
+    <item name="purple" type="color">#9c27b0</item>
+    <item name="green" type="color">#17581c</item>
+    <item name="orange" type="color">#ff5722</item>
+    <item name="red" type="color">#f31b0b</item>
+    <item name="indigo" type="color">#3f51b5</item>
+    <item name="deep_purple" type="color">#673ab7</item>
+    <item name="light_green" type="color">#689f38</item>
+    <item name="teal" type="color">#009688</item>
+    <item name="pink" type="color">#e91e63</item>
+</resources>
