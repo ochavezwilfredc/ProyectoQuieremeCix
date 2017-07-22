@@ -126,7 +126,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
     public void logear(){
         // Loguear...
         if (cb_recordarme.isChecked()) {
-
             SharedPreferences preferencias=LoginActivity.this.getSharedPreferences("datos", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor=preferencias.edit().clear();
             editor.putString(Constantes.KEY_EMAIL, ac_email.getText().toString().trim());

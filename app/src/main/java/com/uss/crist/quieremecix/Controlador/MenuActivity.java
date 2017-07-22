@@ -1,5 +1,6 @@
 package com.uss.crist.quieremecix.Controlador;
 
+import android.annotation.TargetApi;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
@@ -37,7 +38,6 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
 
         servicios = new Servicios();
-
         btn_perfil = (Button)findViewById(R.id.btn_perfil);
         btn_perfil.setOnClickListener(this);
         btn_denuncia = (Button)findViewById(R.id.btn_denuncias);
@@ -53,9 +53,11 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         btn_salir = (Button)findViewById(R.id.btn_salir);
         btn_salir.setOnClickListener(this);
 
-       /* if(ban_unete!="0"){
-            btn_unete.setVisibility(View.INVISIBLE);
-        }*/
+       if(ban_unete.equals("1")) {
+           btn_unete.setVisibility(View.GONE);
+       }else{
+           btn_unete.setVisibility(View.VISIBLE);
+       }
 
        unete_actualizar = new Unete_Actualizar();
 
@@ -71,14 +73,16 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.btn_denuncias:
-                startActivity(new Intent(MenuActivity.this, DenunciasActivity.class));
+                Intent intent2 = new Intent(MenuActivity.this, DenunciasActivity.class);
+                intent2.putExtra(Constantes.KEY_ID,id_persona);
+                startActivity(intent2);
                 break;
 
             case R.id.btn_adoptar:
                 break;
 
             case R.id.btn_unete:
-                unete().show();
+                unete();
                 break;
 
             case R.id.btn_ubicacion:
@@ -94,11 +98,12 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-
+/*
     public AlertDialog unete() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
 
         builder.setTitle("Unete")
+                .setIcon(R.drawable.ic_trato)
                 .setMessage(getString(R.string.info_unuete))
                 .setPositiveButton("ACEPTAR",
                         new DialogInterface.OnClickListener() {
@@ -115,6 +120,29 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                         });
 
         return builder.create();
+    }*/
+
+    public void unete() {
+        new AlertDialog.Builder(MenuActivity.this)
+                .setTitle("UNETE")
+                .setIcon(R.drawable.ic_trato)
+                .setMessage(getString(R.string.info_unuete))
+                .setPositiveButton("Aceptar",
+                        new DialogInterface.OnClickListener() {
+                            @TargetApi(11)
+                            public void onClick(DialogInterface dialog, int id) {
+                                unete_actualizar.actualizar_persona_uneteID(MenuActivity.this, id_persona);
+                                btn_unete.setVisibility(View.GONE);
+                                dialog.cancel();
+                            }
+                        })
+                .setNeutralButton("Cancelar",
+                        new DialogInterface.OnClickListener() {
+                            @TargetApi(11)
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        }).show();
     }
 
 
@@ -122,6 +150,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
 
         builder.setTitle("Aviso")
+                .setIcon(R.drawable.ic_warning)
                 .setMessage("¿ La sesión finalizará ?")
                 .setPositiveButton("CONFIRMAR",
                         new DialogInterface.OnClickListener() {

@@ -8,7 +8,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.uss.crist.quieremecix.R;
@@ -18,7 +17,7 @@ public class DenunciasActivity extends AppCompatActivity {
 
     // Atributos
     ListView listView;
-    ArrayAdapter adapter;
+    DenunciaAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +25,8 @@ public class DenunciasActivity extends AppCompatActivity {
         // Obtener instancia de la lista
         listView= (ListView) findViewById(R.id.listView);
 
-
+        Bundle bundle = getIntent().getExtras();
+        final String id_persona = bundle.getString(Constantes.KEY_ID);
 
         // Crear adaptador y setear
         adapter = new DenunciaAdapter(this);
@@ -38,10 +38,10 @@ public class DenunciasActivity extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-
+                //adapter.obtenerDenuncia(position).getId();
                 //Toast.makeText(DenunciasActivity.this,String.valueOf(position),Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(DenunciasActivity.this,Detalle_DenunciaActivity.class);
-                intent.putExtra(Constantes.KEY_ID,"1");
+                intent.putExtra(Constantes.KEY_ID,adapter.obtenerDenuncia(position).getId());
                 startActivity(intent);
 
             }
@@ -56,11 +56,14 @@ public class DenunciasActivity extends AppCompatActivity {
             public void onClick(View view) {
                 /*Snackbar.make(view, "Se presionó el FAB", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();*/
-                startActivity(new Intent(DenunciasActivity.this,NuevaDenunciaActivity.class));
+                Intent intent = new Intent(DenunciasActivity.this,NuevaDenunciaActivity.class);
+                intent.putExtra(Constantes.KEY_ID,id_persona);
+                startActivity(intent);
             }
         });
 
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

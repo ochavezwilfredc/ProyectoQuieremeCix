@@ -39,7 +39,7 @@ public class DenunciaAdapter extends ArrayAdapter {
     // Atributos
     JsonObjectRequest jsArrayRequest;
     private static final String TAG = "PostAdapter";
-    List<Denuncia> denuncias;
+   public static List<Denuncia> denuncias;
     Servicios servicios;
 
 
@@ -136,6 +136,12 @@ public class DenunciaAdapter extends ArrayAdapter {
         VolleySingleton.getInstance(getContext()).addToRequestQueue(request);
 
         return listItemView;
+    }
+    public Denuncia obtenerDenuncia(int post){
+        // Obtener el item actual
+        Denuncia item = denuncias.get(post);
+
+        return item;
     }
 
     public List<Denuncia> parseJson(JSONObject jsonObject){

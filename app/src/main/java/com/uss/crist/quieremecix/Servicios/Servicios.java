@@ -43,7 +43,7 @@ public class Servicios {
 
 
     public boolean validarNombre(String nombre){
-        Pattern patron = Pattern.compile("^[a-zA-Z ]+$");
+        Pattern patron = Pattern.compile("[ A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.-]+");
         return patron.matcher(nombre).matches();
     }
 
@@ -78,18 +78,33 @@ public class Servicios {
             nombre = nombre+n.charAt(i);
             i++;
         }
-        return nombre+".png";
+        return nombre+codigoAleatorio()+".png";
     }
+
+
 
     public void mensaje(Activity activity,String m){
         Toast.makeText(activity,m,Toast.LENGTH_LONG).show();
 
     }
 
+    public String codigoAleatorio(){
+        String code = "";
+        int n;
+        for (int i =0; i<5; i++){
+            n = (int) (Math.random()*10+1);
+            code = code + String.valueOf(n);
+        }
+
+        return code;
+    }
+
 
     /**
      * Crear ID para google Maps
      * keytool -list -v -keystore "debug.keystore" -alias androiddebugkey -storepass android -keypass android
+     *
+     *
      */
 
 }

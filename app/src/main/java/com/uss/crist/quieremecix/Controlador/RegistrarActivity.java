@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -25,6 +26,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.uss.crist.quieremecix.Modelo.Requesthandler;
 import com.uss.crist.quieremecix.Modelo.VolleySingleton;
 import com.uss.crist.quieremecix.R;
 import com.uss.crist.quieremecix.Servicios.Constantes;
@@ -32,6 +34,7 @@ import com.uss.crist.quieremecix.Servicios.Servicios;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 
@@ -41,9 +44,10 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
     private EditText et_nom_ape,et_dni,et_mail, et_pass, et_pass2, et_fechaNac, et_tel;
     private Button btn_aceptar, btn_cancelar, btn_fechaNac;
     private RadioButton rb_hombre,rb_mujer;
-    private int sexo;
+    private String sexo;
     private  int dia,mes,ano;
     private CircleImageView imagen_perfil;
+    private boolean ban=true;
 
     Servicios servicios;
 
@@ -91,13 +95,14 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
                 break;
             case R.id.btn_aceptar:
                 if(rb_hombre.isChecked()==true){
-                    sexo =1;
+                    sexo ="1";
                 }else if(rb_mujer.isChecked()==true){
-                    sexo=2;
+                    sexo="2";
                 }
                 //Validar valores de entrada
                 if (validar()){
-                    RegistrarPersona();
+                    addUsuario();
+                   // RegistrarPersona();
                     finish();
                 }else{
                     servicios.mensaje(this,"Error en los valores ingresados!");
@@ -146,7 +151,13 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
                                         et_pass.setError(getString(R.string.error_incorrect_password_iquals));
                                         et_pass.requestFocus();
                                     }else{
-                                        ok=true;
+                                        if(ban){
+                                            servicios.mensaje(RegistrarActivity.this,"Error - Seleccione una imgaen de perfil");
+                                            imagen_perfil.requestFocus();
+                                        }else {
+                                            ok=true;
+                                        }
+
                                     }
                                 }
 
@@ -178,17 +189,22 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
 
 
     //***** --------------- Inicio del Registro de persona *******
-
+/*
     private void RegistrarPersona(){
 
         //Mostrar el diálogo de progreso
+        final ProgressDialog loading = new ProgressDialog(RegistrarActivity.this);
+        loading.setTitle("Agregando");
+        loading.setMessage("Espere...");
+        loading.setIndeterminate(true);
+        loading.show();
         //final ProgressDialog loading = ProgressDialog.show(this,"Subiendo...","Espere por favor...",false,false);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constantes.INSERTAR_PERSONA,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
                         //Descartar el diálogo de progreso
-                       // loading.dismiss();
+                        loading.dismiss();
                         //Mostrando el mensaje de la respuesta
                         Toast.makeText(RegistrarActivity.this, s , Toast.LENGTH_LONG).show();
                     }
@@ -197,7 +213,7 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
                         //Descartar el diálogo de progreso
-                        //loading.dismiss();
+                        loading.dismiss();
 
                         //Showing toast
                         Toast.makeText(RegistrarActivity.this, volleyError.getMessage().toString(), Toast.LENGTH_LONG).show();
@@ -207,6 +223,7 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
             protected Map<String, String> getParams() throws AuthFailureError {
                 //Convertir bits a cadena
                 String imagen = getStringImagen(bitmap);
+
                 String nom_ape =  et_nom_ape.getText().toString().trim();
                 String fechaN =  et_fechaNac.getText().toString().trim();
                 String dni =  et_dni.getText().toString().trim();
@@ -222,7 +239,7 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
                 params.put(Constantes.KEY_NOM_APE, nom_ape);
                 params.put(Constantes.KEY_FECHA_NAC, fechaN);
                 params.put(Constantes.KEY_DNI, dni);
-                params.put(Constantes.KEY_SEXO, String.valueOf(sexo));
+                params.put(Constantes.KEY_SEXO, sexo);
                 params.put(Constantes.KEY_EMAIL, email);
                 params.put(Constantes.KEY_CLAVE, pass);
                 params.put(Constantes.KEY_TELEFONO, tel);
@@ -237,6 +254,68 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
             //Agregar solicitud a la cola
         VolleySingleton.getInstance(RegistrarActivity.this).addToRequestQueue(stringRequest);
 
+    }*/
+
+
+    private void addUsuario(){
+        //Convertir bits a cadena
+        final String imagen = getStringImagen(bitmap);
+
+        final String nom_ape =  et_nom_ape.getText().toString().trim();
+        final String fechaN =  et_fechaNac.getText().toString().trim();
+        final String dni =  et_dni.getText().toString().trim();
+        final String email =  et_mail.getText().toString().trim();
+        final String pass =  et_pass.getText().toString().trim();
+        final String tel =  et_tel.getText().toString().trim();
+        final String nombre_foto =  servicios.getNombreImg(nom_ape);
+
+
+        //Ejecuta hilos secundarios o asincronos
+        class addPersona extends AsyncTask<Void,Void,String> {
+
+            ProgressDialog loaddin = new ProgressDialog(RegistrarActivity.this);
+
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                loaddin.setTitle("Agregando");
+                loaddin.setMessage("Espere...");
+                loaddin.setIndeterminate(true);
+                loaddin.show();
+
+            }
+
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                loaddin.dismiss();
+                Toast.makeText(RegistrarActivity.this,s,Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            protected String doInBackground(Void... v) {
+                HashMap<String,String> params = new HashMap<>();
+                //Agregando de parámetros
+                params.put(Constantes.KEY_NOM_APE, nom_ape);
+                params.put(Constantes.KEY_FECHA_NAC, fechaN);
+                params.put(Constantes.KEY_DNI, dni);
+                params.put(Constantes.KEY_SEXO, sexo);
+                params.put(Constantes.KEY_EMAIL, email);
+                params.put(Constantes.KEY_CLAVE, pass);
+                params.put(Constantes.KEY_TELEFONO, tel);
+                params.put(Constantes.KEY_NOMBRE_FOTO, nombre_foto);
+                params.put(Constantes.KEY_IMAGEN, imagen);
+                Requesthandler rh =  new Requesthandler();
+
+                String res =  rh.sendPostRequest(Constantes.INSERTAR_PERSONA,params);
+                return res;
+            }
+        }
+
+        addPersona ae =  new addPersona();
+        ae.execute();
 
     }
 
@@ -248,6 +327,7 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+        ban=false;
     }
 
 
@@ -293,6 +373,7 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
         AlertDialog.Builder builder = new AlertDialog.Builder(RegistrarActivity.this);
 
         builder.setTitle("Aviso")
+                .setIcon(R.drawable.ic_warning)
                 .setMessage("¿ Esta seguro ?")
 
                 .setPositiveButton("Aceptar",

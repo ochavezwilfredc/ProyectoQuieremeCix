@@ -33,6 +33,7 @@
                 android:background="@drawable/edit_text_border"
                 android:ems="10"
                 android:hint="@string/textoTitulo"
+                android:text="Busco a mi mascota"
                 android:inputType="textAutoComplete"
                 android:padding="@dimen/edit_text_padding"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -42,6 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/divider"
+                android:text="Los sauces"
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/edit_text_border"
                 android:ems="10"
@@ -58,6 +60,7 @@
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/edit_text_border"
                 android:ems="10"
+                android:text="Pitbull"
                 android:hint="@string/textoRaza"
                 android:inputType="textAutoComplete"
                 android:padding="@dimen/edit_text_padding"
@@ -68,6 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/divider"
+                android:text="Colorado con masnchas blancas"
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/edit_text_border"
                 android:ems="10"
@@ -92,7 +96,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="8dp"
+                    android:layout_marginLeft="7dp"
                     android:paddingLeft="8dp"
                     android:text="@string/TextoTipoMacota"
                     android:textAllCaps="false"
@@ -123,10 +127,13 @@
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/edit_text_border"
                 android:ems="10"
+                android:text="Ofresco buena recommpenza ante cualquier consulta llame 96336963"
                 android:hint="@string/textoDescripcion"
-                android:inputType="textAutoComplete"
+                android:inputType="textMultiLine"
                 android:padding="@dimen/edit_text_padding"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:scrollbars="vertical"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textIsSelectable="true" />
 
             <LinearLayout
                 android:layout_width="match_parent"

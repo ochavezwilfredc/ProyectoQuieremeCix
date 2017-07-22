@@ -8,6 +8,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -23,7 +24,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.uss.crist.quieremecix.R;
 
-public class UbicacionActivity extends FragmentActivity implements  OnMapReadyCallback,
+public class UbicacionActivity extends AppCompatActivity implements  OnMapReadyCallback,
                                                                     GoogleMap.OnMarkerClickListener,
                                                                     GoogleMap.OnInfoWindowClickListener{
 
@@ -63,7 +64,7 @@ public class UbicacionActivity extends FragmentActivity implements  OnMapReadyCa
 
         // Añadir un marcador en la Universidad Señor de Sipan y mover la cámara
         LatLng quiereme = new LatLng(-6.753856875426512,-79.87139403820038);
-        int radius = 100;
+        int radius = 50;
         markerQuiereme = googleMap.addMarker(new MarkerOptions()
                 .position(quiereme)
                 .title("ONG QuieremeCIX")

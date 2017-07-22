@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">QuiéremeCix</string>
+    <string name="app_name">QuiéremeCIX</string>
     <string name="info_tituloRecuperarPass">Cambiar Contraseña</string>
     <string name="app_confirmar_pass">Confirmar Contraseña</string>
     <string name="app_ingresar_pass">Ingresar Contraseña</string>
@@ -89,13 +89,18 @@
     <string name="error_incorrect_password_vacio">Error campo obligatorio</string>
     <string name="app_name_detalle_denuncia">Detalle de Denuncia</string>
     <string name="app_name_nueva_denuncia">Nueva Denuncia</string>
-    <string name="textoTitulo">Ingrese el título</string>
-    <string name="textoLugar">Ingrese el lugar</string>
-    <string name="textoRaza">Ingrese la raza de su mascota</string>
-    <string name="textoColor">Ingrese el color de su mascota</string>
-    <string name="textoDescripcion">Ingrese una descripción</string>
+    <string name="textoTitulo">Título</string>
+    <string name="textoLugar">lugar</string>
+    <string name="textoRaza">Raza de su mascota</string>
+    <string name="textoColor">Color de su mascota</string>
+    <string name="textoDescripcion">Descripción</string>
     <string name="tipo_mascota">Tipo de mascota</string>
-    <string name="TextoTipoMacota">Ingrese Tipo de Mascota</string>
+    <string name="TextoTipoMacota">Tipo de Mascota</string>
     <string name="error_titulo">Error de título</string>
+    <string name="error_lugar">Error de lugar</string>
+    <string name="error_raza">Error Raza</string>
+    <string name="error_color">Error Color</string>
+    <string name="error_tipo_mascota">Error Tipo Mascota</string>
+    <string name="error_descripcion_mascota">Error descripción</string>
 
 </resources>

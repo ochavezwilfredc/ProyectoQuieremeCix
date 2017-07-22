@@ -159,6 +159,7 @@ public class ActualizarPerfilActivity extends AppCompatActivity implements View.
         AlertDialog.Builder builder = new AlertDialog.Builder(ActualizarPerfilActivity.this);
 
         builder.setTitle("Aviso")
+                .setIcon(R.drawable.ic_warning)
                 .setMessage("¿ Esta seguro de eliminar los cambios ?")
                 .setNegativeButton("CANCELAR",
                         new DialogInterface.OnClickListener() {
