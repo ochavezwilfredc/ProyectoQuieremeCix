@@ -26,6 +26,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.uss.crist.quieremecix.Controlador.Denuncia.NuevaDenunciaActivity;
 import com.uss.crist.quieremecix.Modelo.Requesthandler;
 import com.uss.crist.quieremecix.Modelo.VolleySingleton;
 import com.uss.crist.quieremecix.R;
@@ -56,8 +57,6 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
     private Bitmap bitmap;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +84,8 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
 
         rb_hombre = (RadioButton)findViewById(R.id.rb_hombre);
         rb_mujer = (RadioButton)findViewById(R.id.rb_mujer);
+
+
     }
 
     @Override
@@ -101,9 +102,8 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
                 }
                 //Validar valores de entrada
                 if (validar()){
-                    addUsuario();
-                   // RegistrarPersona();
-                    finish();
+                    //addUsuario();
+                    RegistrarPersona();
                 }else{
                     servicios.mensaje(this,"Error en los valores ingresados!");
                 }
@@ -189,34 +189,34 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
 
 
     //***** --------------- Inicio del Registro de persona *******
-/*
+
     private void RegistrarPersona(){
 
         //Mostrar el diálogo de progreso
-        final ProgressDialog loading = new ProgressDialog(RegistrarActivity.this);
-        loading.setTitle("Agregando");
-        loading.setMessage("Espere...");
-        loading.setIndeterminate(true);
-        loading.show();
-        //final ProgressDialog loading = ProgressDialog.show(this,"Subiendo...","Espere por favor...",false,false);
+
+        final ProgressDialog loading = ProgressDialog.show(this,"Registrando...","Espere por favor...",false,false);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, Constantes.INSERTAR_PERSONA,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
                         //Descartar el diálogo de progreso
-                        loading.dismiss();
+                        if (loading.isShowing())
+                            loading.dismiss();
                         //Mostrando el mensaje de la respuesta
                         Toast.makeText(RegistrarActivity.this, s , Toast.LENGTH_LONG).show();
+                        finish();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
                         //Descartar el diálogo de progreso
-                        loading.dismiss();
+                        if (loading.isShowing())
+                            loading.dismiss();
 
                         //Showing toast
                         Toast.makeText(RegistrarActivity.this, volleyError.getMessage().toString(), Toast.LENGTH_LONG).show();
+                        finish();
                     }
                 }){
             @Override
@@ -254,9 +254,9 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
             //Agregar solicitud a la cola
         VolleySingleton.getInstance(RegistrarActivity.this).addToRequestQueue(stringRequest);
 
-    }*/
+    }
 
-
+/*
     private void addUsuario(){
         //Convertir bits a cadena
         final String imagen = getStringImagen(bitmap);
@@ -273,25 +273,20 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
         //Ejecuta hilos secundarios o asincronos
         class addPersona extends AsyncTask<Void,Void,String> {
 
-            ProgressDialog loaddin = new ProgressDialog(RegistrarActivity.this);
-
-
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
-                loaddin.setTitle("Agregando");
-                loaddin.setMessage("Espere...");
-                loaddin.setIndeterminate(true);
-                loaddin.show();
-
+                loading.show();
             }
 
 
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                loaddin.dismiss();
+                if (loading.isShowing())
+                    loading.dismiss();
                 Toast.makeText(RegistrarActivity.this,s,Toast.LENGTH_SHORT).show();
+                finish();
             }
 
             @Override
@@ -317,10 +312,7 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
         addPersona ae =  new addPersona();
         ae.execute();
 
-    }
-
-
-
+    }*/
 
     private void showFileChooser() {
         Intent intent = new Intent();
@@ -329,7 +321,6 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
         startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
         ban=false;
     }
-
 
 
     //---------------------------- Extraer la URL de la imagen en nuestro dispositivo ----------------------

@@ -15,7 +15,7 @@ public class Constantes {
     /**
      * Dirección IP AVD
      */
-    private static final String IP = "192.168.1.39";
+    private static final String IP = "192.168.0.12";
 
     /**
      * URLs del Web Service

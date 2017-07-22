@@ -79,7 +79,7 @@ public class ActualizarPerfilActivity extends AppCompatActivity implements View.
         if (view.getId() == R.id.btn_aceptar_ap){
             if (validar()){
                 actualizarPerfil();
-                finish();
+
                 //startActivity(new Intent(ActualizarPerfilActivity.this,MenuActivity.class));
             }
         }else{
@@ -125,7 +125,6 @@ public class ActualizarPerfilActivity extends AppCompatActivity implements View.
             protected void onPreExecute() {
                 super.onPreExecute();
                 loaddin = ProgressDialog.show(ActualizarPerfilActivity.this,"Actualizando...","Espere...",false,false);
-
             }
 
 
@@ -134,6 +133,7 @@ public class ActualizarPerfilActivity extends AppCompatActivity implements View.
                 super.onPostExecute(s);
                 loaddin.dismiss();
                 servicios.mensaje(ActualizarPerfilActivity.this,s);
+                finish();
             }
 
             @Override

@@ -11,6 +11,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -92,7 +93,7 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
             case R.id.btn_aceptar_nuevaD:
                 if (validar()){
                     RegistrarDenuncia();
-                    finish();
+
                 }
                 break;
 
@@ -282,19 +283,26 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
                     @Override
                     public void onResponse(String s) {
                         //Descartar el diálogo de progreso
-                        loading.dismiss();
+                        Log.e("Error :","aca1");
+                        if (loading.isShowing())
+                            loading.dismiss();
                         //Mostrando el mensaje de la respuesta
                         Toast.makeText(NuevaDenunciaActivity.this, s , Toast.LENGTH_LONG).show();
+
+                        finish();
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError volleyError) {
                         //Descartar el diálogo de progreso
-                        loading.dismiss();
+                        if (loading.isShowing())
+                            loading.dismiss();
 
                         //Showing toast
                         Toast.makeText(NuevaDenunciaActivity.this, volleyError.getMessage().toString(), Toast.LENGTH_LONG).show();
+                        finish();
+
                     }
                 }){
             @Override
@@ -310,7 +318,7 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
                 String longitud="-6.753856875426512";//ejemplo aca agregamos lat y long
                 String latitud ="-79.87139403820038";
                 String descripcion =  textoDescripcion.getText().toString().trim();
-                String nombre_foto =  raza+servicios.codigoAleatorio();
+                String nombre_foto =  raza+servicios.codigoAleatorio()+".png";
 
                 //Creación de parámetros
                 Map<String,String> params = new Hashtable<String, String>();

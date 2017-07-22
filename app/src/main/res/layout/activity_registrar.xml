@@ -56,7 +56,6 @@
                     android:background="@drawable/edit_text_border"
                     android:ems="10"
                     android:hint="@string/et_nombre_apellido"
-                    android:text="pepe fuentes"
                     android:inputType="textAutoComplete"
                     android:padding="@dimen/edit_text_padding"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -159,7 +158,6 @@
                     android:background="@drawable/edit_text_border"
                     android:ems="10"
                     android:hint="@string/et_dni"
-                    android:text="52696633"
                     android:inputType="number"
                     android:padding="@dimen/edit_text_padding"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -174,7 +172,6 @@
                     android:background="@drawable/edit_text_border"
                     android:ems="10"
                     android:hint="@string/et_telefono"
-                    android:text="96336963"
                     android:inputType="text|phone"
                     android:padding="@dimen/edit_text_padding"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -189,7 +186,6 @@
                     android:background="@drawable/edit_text_border"
                     android:ems="10"
                     android:hint="@string/et_email"
-                    android:text="pepe@uss.pe"
                     android:inputType="textEmailAddress"
                     android:padding="@dimen/edit_text_padding"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -204,7 +200,6 @@
                 android:background="@drawable/edit_text_border"
                 android:ems="10"
                 android:hint="@string/et_clave"
-                    android:text="123456"
                 android:inputType="textPassword"
                 android:padding="@dimen/edit_text_padding"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
@@ -219,7 +214,6 @@
                     android:background="@drawable/edit_text_border"
                     android:ems="10"
                     android:hint="@string/et_clave_confirmacion"
-                    android:text="123456"
                     android:inputType="textPassword"
                     android:padding="@dimen/edit_text_padding"
                     android:textAppearance="?android:attr/textAppearanceSmall" />
