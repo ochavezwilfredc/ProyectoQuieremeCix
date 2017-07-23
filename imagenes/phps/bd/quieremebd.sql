@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-07-2017 a las 23:25:00
+-- Tiempo de generación: 23-07-2017 a las 19:23:54
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -45,8 +45,13 @@ CREATE TABLE `articulo` (
 --
 
 INSERT INTO `articulo` (`idarticulo`, `titulo`, `fecha`, `lugar`, `latitud`, `longitud`, `descripcion`, `eliminado`, `idtipo_articulo`, `idmascota`, `idpersona`) VALUES
-(1, 'Búsqueda de mi Mascota ', '2017-07-12 05:09:14', 'Derrama Magisterial Mz:P1 Lt:21', -6.753856875426512, -79.87139403820038, 'Ofrezco recomenzar  ante cualquier información comunicarse a #952234080 o 074320435 ', b'0', 1, 1, 1),
-(7, 'Búsqueda de mi Mascota', '2017-07-12 08:42:21', 'Av: Argentina Nro. 110 ', NULL, NULL, 'Por favor contactarse al siguiente número 963258743', b'0', 1, 2, 1);
+(1, 'Búsqueda de mi Mascota', '2017-07-12 05:09:14', 'Derrama Magisterial Mz:P1 Lt:21', -6.753856875426512, -79.87139403820038, 'Ofrezco recomenzar  ante cualquier información comunicarse a #952234080 o 074320435 ', b'0', 1, 1, 1),
+(7, 'Búsqueda ', '2017-07-12 08:42:21', 'Av: Argentina Nro. 110 ', NULL, NULL, 'Por favor contactarse al siguiente número 963258743', b'0', 1, 2, 1),
+(11, 'busqueda', '2017-07-18 22:23:38', 'anguia', 17, 10, 'bla bla', b'0', 1, 6, 1),
+(13, 'Busco a mi mascota', '2017-07-22 17:50:56', 'Los sauces', -79.87139403820038, -6.753856875426512, 'Ofresco buena recommpenza ante cualquier consulta llame 96336963', b'0', 1, 7, 1),
+(14, 'Busco a mi mascota', '2017-07-23 15:44:15', 'Los sauces', -79.87139403820038, -6.753856875426512, 'Ofresco buena recommpenza ante cualquier consulta llame 96336963', b'0', 1, 7, 24),
+(15, 'Busco a mi mascota', '2017-07-23 16:35:41', 'Los sauces', -79.87139403820038, -6.753856875426512, 'Ofresco buena recommpenza ante cualquier consulta llame 96336963', b'0', 1, 7, 1),
+(16, 'Busco a mi mascota', '2017-07-23 16:36:56', 'Los sauces', -79.87139403820038, -6.753856875426512, 'Ofresco buena recommpenza ante cualquier consulta llame 96336963', b'0', 1, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -95,7 +100,12 @@ CREATE TABLE `detalle_articulo` (
 
 INSERT INTO `detalle_articulo` (`iddetalle_articulo`, `imagen`, `eliminado`, `idarticulo`) VALUES
 (1, 'mascota3.png', b'0', 1),
-(3, 'mascota4.png', b'0', 7);
+(3, 'mascota4.png', b'0', 7),
+(5, 'mascota2.png', b'0', 11),
+(7, 'Pitbull98233.png', b'0', 13),
+(8, 'Pitbull109121.png', b'0', 14),
+(9, 'Pitbull135105.png', b'0', 15),
+(10, 'Pitbull68323.png', b'0', 16);
 
 -- --------------------------------------------------------
 
@@ -118,7 +128,9 @@ CREATE TABLE `mascota` (
 
 INSERT INTO `mascota` (`idmascota`, `raza`, `color`, `estado`, `eliminado`, `idtipo_mascota`) VALUES
 (1, 'Labrador', 'Blanco con manchas coloradas y negras', b'1', b'0', 1),
-(2, 'Rottweiler', 'Negro con manchas coloradas', b'1', b'0', 1);
+(2, 'Rottweiler', 'Negro con manchas coloradas', b'1', b'0', 1),
+(6, 'bolldog', 'negro', b'1', b'0', 1),
+(7, 'bolldog', 'negro', b'1', b'0', 1);
 
 -- --------------------------------------------------------
 
@@ -145,7 +157,16 @@ CREATE TABLE `persona` (
 --
 
 INSERT INTO `persona` (`idpersona`, `nom_ape`, `fecha_nac`, `dni`, `sexo`, `email`, `clave`, `telefono`, `estado`, `foto`, `eliminado`) VALUES
-(1, 'cristobal olano chavez', '1990-02-01', '47682522', 'Masculino', 'cristo@uss.pe', 'e10adc3949ba59abbe56e057f20f883e', '963258745', b'1', 'cristobal.png', b'0');
+(1, 'Cristobal Olano Chavez', '1990-02-01', '47682522', 'Masculino', 'cristo@uss.pe', 'e10adc3949ba59abbe56e057f20f883e', '952234074', b'1', 'cristobal.png', b'0'),
+(2, 'Kelvin olano chavez', '1990-02-23', '54385233', 'Masculino', 'kelvin@uss.pe', 'e10adc3949ba59abbe56e057f20f883e', '963258451', b'1', 'kelvin.png', b'0'),
+(3, 'Nancy inga', '1990-02-17', '96325874', 'Femenino', 'nan@uss.pe', 'e10adc3949ba59abbe56e057f20f883e', '963258333', b'1', 'nancy.png', b'0'),
+(13, 'emilia olano', '1990-02-24', '75236955', 'Femenino', 'emi@uss.pe', 'e10adc3949ba59abbe56e057f20f883e', '987456321', b'1', 'emilia.png', b'0'),
+(20, 'pepe fuentes', '1990-02-25', '52696633', 'Masculino', 'pepe@uss.pe', 'e10adc3949ba59abbe56e057f20f883e', '96336963', b'0', 'pepe6101410.png', b'0'),
+(21, 'cristobal  chavez', '1990-02-24', '12345678', 'Masculino', 'andy@hotmail.com', 'e10adc3949ba59abbe56e057f20f883e', '963369963', b'0', 'cristobal44366.png', b'0'),
+(23, 'paisa', '1990-02-01', '96336996', 'Masculino', 'paisa@uss.pe', 'e10adc3949ba59abbe56e057f20f883e', '9636963369', b'0', 'paisa93625.png', b'0'),
+(24, 'NicolÃ¡s Flores', '1994-09-10', '72178651', 'Masculino', 'ftellojaime@crece.uss.edu.pe', 'e10adc3949ba59abbe56e057f20f883e', '959545646', b'1', 'Nicolas77255.png', b'0'),
+(25, 'Anthony Castro', '1997-06-26', '73320710', 'Masculino', 'giuseppe.ca@hotmail.com', 'e10adc3949ba59abbe56e057f20f883e', '970390247', b'0', 'Anthony1027107.png', b'0'),
+(26, 'Jhon Adderly Perez', '1989-09-28', '45457014', 'Masculino', 'jhonperez.2909@gmail.com', 'd5f0c998a353ac575d7ac5d69108c1f9', '984896310', b'1', '45457014_109746.png', b'0');
 
 -- --------------------------------------------------------
 
@@ -184,8 +205,9 @@ CREATE TABLE `tipo_mascota` (
 --
 
 INSERT INTO `tipo_mascota` (`idtipo_mascota`, `descripcion`, `eliminado`) VALUES
-(1, 'Perro', b'0'),
-(2, 'Gato', b'0');
+(1, 'Canino', b'0'),
+(2, 'Felino', b'0'),
+(3, 'Otro', b'0');
 
 --
 -- Índices para tablas volcadas
@@ -255,7 +277,7 @@ ALTER TABLE `tipo_mascota`
 -- AUTO_INCREMENT de la tabla `articulo`
 --
 ALTER TABLE `articulo`
-  MODIFY `idarticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idarticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT de la tabla `codigo_recuperacion`
 --
@@ -270,17 +292,17 @@ ALTER TABLE `comentario`
 -- AUTO_INCREMENT de la tabla `detalle_articulo`
 --
 ALTER TABLE `detalle_articulo`
-  MODIFY `iddetalle_articulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `iddetalle_articulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `mascota`
 --
 ALTER TABLE `mascota`
-  MODIFY `idmascota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idmascota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `persona`
 --
 ALTER TABLE `persona`
-  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idpersona` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 --
 -- AUTO_INCREMENT de la tabla `tipo_articulo`
 --
@@ -290,7 +312,7 @@ ALTER TABLE `tipo_articulo`
 -- AUTO_INCREMENT de la tabla `tipo_mascota`
 --
 ALTER TABLE `tipo_mascota`
-  MODIFY `idtipo_mascota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idtipo_mascota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Restricciones para tablas volcadas
 --
@@ -299,7 +321,7 @@ ALTER TABLE `tipo_mascota`
 -- Filtros para la tabla `articulo`
 --
 ALTER TABLE `articulo`
-  ADD CONSTRAINT `fk_articulo_mascota1` FOREIGN KEY (`idmascota`) REFERENCES `mascota` (`idmascota`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_articulo_mascota1` FOREIGN KEY (`idmascota`) REFERENCES `mascota` (`idmascota`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_articulo_persona1` FOREIGN KEY (`idpersona`) REFERENCES `persona` (`idpersona`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_articulo_tipo_articulo1` FOREIGN KEY (`idtipo_articulo`) REFERENCES `tipo_articulo` (`idtipo_articulo`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
