@@ -132,8 +132,8 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
 
         final CharSequence[] items = new CharSequence[3];
 
-        items[0] = "Perro";
-        items[1] = "Gato";
+        items[0] = "Canino";
+        items[1] = "Felino";
         items[2] = "Otro";
 
         builder.setTitle("Seleccione Tipo de Mascota");

@@ -230,7 +230,7 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
                 String email =  et_mail.getText().toString().trim();
                 String pass =  et_pass.getText().toString().trim();
                 String tel =  et_tel.getText().toString().trim();
-                String nombre_foto =  servicios.getNombreImg(nom_ape);
+                String nombre_foto =  dni+"_"+servicios.codigoAleatorio()+".png";
 
                 //Creación de parámetros
                 Map<String,String> params = new Hashtable<String, String>();
