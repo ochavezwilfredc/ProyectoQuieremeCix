@@ -44,7 +44,7 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
     private Button btn_tipoMascota, btn_aceptar, btn_cancelar;
     private ImageView imageView;
     Servicios servicios;
-    String id_persona, tipo_mascota;
+    public String id_persona, tipo_m;
     boolean ban=true;
 
     @Override
@@ -75,7 +75,6 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
         btn_cancelar = (Button)findViewById(R.id.btn_cancelar_nuevaD);
         btn_cancelar.setOnClickListener(this);
 
-        //dialog = new TipoMacotasDialog();
 
     }
 
@@ -87,7 +86,7 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
                 break;
             case R.id.btn_tipoMascotaN:
                 //alertSimpleListView();
-                alertSingleChoiceItems();
+                getTipoMascota();
                 break;
 
             case R.id.btn_aceptar_nuevaD:
@@ -101,30 +100,9 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
                 break;
         }
     }
-/*
-    public void alertSimpleListView() {
 
-        final CharSequence[] items = { "Perro", "Gato" };
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(NuevaDenunciaActivity.this);
-        builder.setTitle("Seleccione Tipo de Mascota");
-        builder.setIcon(R.drawable.ic_tipomascota);
-        builder.setItems(items, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int item) {
-
-                // will toast your selection
-                if (item == 0){
-                    textoTipoMasc.setText("1");
-                }else{
-                    textoTipoMasc.setText("2");
-                }
-                dialog.dismiss();
-
-            }
-        }).show();
-    }*/
-
-    public void alertSingleChoiceItems(){
+    public void getTipoMascota(){
 
         AlertDialog.Builder builder = new AlertDialog.Builder(NuevaDenunciaActivity.this);
 
@@ -143,16 +121,16 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
                     public void onClick(DialogInterface dialog, int which) {
                         switch (which){
                             case 0:
-                                textoTipoMasc.setText("Perro");
-                                tipo_mascota="1";
+                                textoTipoMasc.setText("Canino");
+                                tipo_m="1";
                                 break;
                             case 1:
-                                textoTipoMasc.setText("Gato");
-                                tipo_mascota="2";
+                                textoTipoMasc.setText("Felino");
+                                tipo_m="2";
                                 break;
                             case 2:
                                 textoTipoMasc.setText("Otro");
-                                tipo_mascota="3";
+                                tipo_m="3";
                                 break;
                         }
                         dialog.dismiss();
@@ -314,11 +292,14 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
                 String lugar =  textoLugar.getText().toString().trim();
                 String raza =  textoRaza.getText().toString().trim();
                 String color =  textoColor.getText().toString().trim();
-                String tipo_mascota =  textoTipoMasc.getText().toString().trim();
+                String tipo_mascota =  tipo_m;
                 String longitud="-6.753856875426512";//ejemplo aca agregamos lat y long
                 String latitud ="-79.87139403820038";
                 String descripcion =  textoDescripcion.getText().toString().trim();
                 String nombre_foto =  raza+servicios.codigoAleatorio()+".png";
+
+                //servicios.mensaje(NuevaDenunciaActivity.this,raza+color+tipo_mascota);
+                //Log.d("Mascota:       ...x ",raza+color+tipo_mascota);
 
                 //Creación de parámetros
                 Map<String,String> params = new Hashtable<String, String>();

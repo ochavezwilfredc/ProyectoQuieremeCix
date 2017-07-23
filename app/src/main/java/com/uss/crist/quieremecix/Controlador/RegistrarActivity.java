@@ -256,63 +256,6 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
 
     }
 
-/*
-    private void addUsuario(){
-        //Convertir bits a cadena
-        final String imagen = getStringImagen(bitmap);
-
-        final String nom_ape =  et_nom_ape.getText().toString().trim();
-        final String fechaN =  et_fechaNac.getText().toString().trim();
-        final String dni =  et_dni.getText().toString().trim();
-        final String email =  et_mail.getText().toString().trim();
-        final String pass =  et_pass.getText().toString().trim();
-        final String tel =  et_tel.getText().toString().trim();
-        final String nombre_foto =  servicios.getNombreImg(nom_ape);
-
-
-        //Ejecuta hilos secundarios o asincronos
-        class addPersona extends AsyncTask<Void,Void,String> {
-
-            @Override
-            protected void onPreExecute() {
-                super.onPreExecute();
-                loading.show();
-            }
-
-
-            @Override
-            protected void onPostExecute(String s) {
-                super.onPostExecute(s);
-                if (loading.isShowing())
-                    loading.dismiss();
-                Toast.makeText(RegistrarActivity.this,s,Toast.LENGTH_SHORT).show();
-                finish();
-            }
-
-            @Override
-            protected String doInBackground(Void... v) {
-                HashMap<String,String> params = new HashMap<>();
-                //Agregando de parámetros
-                params.put(Constantes.KEY_NOM_APE, nom_ape);
-                params.put(Constantes.KEY_FECHA_NAC, fechaN);
-                params.put(Constantes.KEY_DNI, dni);
-                params.put(Constantes.KEY_SEXO, sexo);
-                params.put(Constantes.KEY_EMAIL, email);
-                params.put(Constantes.KEY_CLAVE, pass);
-                params.put(Constantes.KEY_TELEFONO, tel);
-                params.put(Constantes.KEY_NOMBRE_FOTO, nombre_foto);
-                params.put(Constantes.KEY_IMAGEN, imagen);
-                Requesthandler rh =  new Requesthandler();
-
-                String res =  rh.sendPostRequest(Constantes.INSERTAR_PERSONA,params);
-                return res;
-            }
-        }
-
-        addPersona ae =  new addPersona();
-        ae.execute();
-
-    }*/
 
     private void showFileChooser() {
         Intent intent = new Intent();

@@ -16,12 +16,16 @@ public class Constantes {
      * Dirección IP AVD
      */
     private static final String IP = "192.168.0.23";
+    private static final String SERVIDOR = "http://quieremeong.creating-solutions.net/v1/";
 
     /**
      * URLs del Web Service
      */
+
+
+
     public static final String URL_BASE = "http://" + IP + PUERTO_HOST + "/quieremeCix";
-    public static final String INSERTAR_PERSONA = "http://" + IP + PUERTO_HOST + "/quieremeCix/registrar_persona.php";
+    public static final String INSERTAR_PERSONA = "http://" + SERVIDOR + "/quieremeCix/registrar_persona.php";
     public static final String GET_DENUNCIAS = "http://" + IP + PUERTO_HOST + "/quieremeCix/consultar_denuncias.php";
     public static final String GET_PERSONA_EMAIL = "http://" + IP + PUERTO_HOST + "/quieremeCix/cunsultar_loginEmail.php?email=";
     public static final String UPDATE_UNETEID = "http://" + IP + PUERTO_HOST + "/quieremeCix/actualizar_persona_unete.php";
@@ -31,6 +35,12 @@ public class Constantes {
     public static final String GET_DENUNCIAID= "http://" + IP + PUERTO_HOST + "/quieremeCix/consultar_denunciaID.php?id=";
     public static final String INSERTAR_DENUNCIA = "http://" + IP + PUERTO_HOST + "/quieremeCix/registrar_denuncia.php";
     public static final String GET_IMAGENES = "http://" + IP + PUERTO_HOST + "/quieremeCix/uploads/";
+
+
+
+
+
+
     /**
      * Constantes de envio de parametros
      *
