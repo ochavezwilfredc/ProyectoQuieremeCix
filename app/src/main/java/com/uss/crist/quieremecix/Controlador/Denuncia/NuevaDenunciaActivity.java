@@ -283,13 +283,13 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
                     @Override
                     public void onResponse(String s) {
                         //Descartar el diálogo de progreso
-                        Log.e("Error :","aca1");
                         if (loading.isShowing())
                             loading.dismiss();
                         //Mostrando el mensaje de la respuesta
                         Toast.makeText(NuevaDenunciaActivity.this, s , Toast.LENGTH_LONG).show();
 
-                        finish();
+                        //finish();
+                        volver_list_denuncias();
                     }
                 },
                 new Response.ErrorListener() {
@@ -347,4 +347,11 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
     }
 
     //-----------------------------------------------------
+
+    public void volver_list_denuncias(){
+        Intent intent = new Intent(NuevaDenunciaActivity.this,DenunciasActivity.class);
+        intent.putExtra(Constantes.KEY_ID,id_persona);
+        startActivity(intent);
+
+    }
 }

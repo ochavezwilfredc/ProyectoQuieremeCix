@@ -73,11 +73,17 @@ public class Servicios {
 
     public String getNombreImg(String n){
         String nombre = "";
-        int i=0;
-        while(n.charAt(i)!=32){
-            nombre = nombre+n.charAt(i);
-            i++;
+        if (n.contains(" ")){
+            int i=0;
+            while(n.charAt(i)!=32){
+                nombre = nombre+n.charAt(i);
+                i++;
+            }
+        }else {
+            nombre=n;
         }
+
+
         return nombre+codigoAleatorio()+".png";
     }
 

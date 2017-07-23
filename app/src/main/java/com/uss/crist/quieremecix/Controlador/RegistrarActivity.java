@@ -48,7 +48,7 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
     private String sexo;
     private  int dia,mes,ano;
     private CircleImageView imagen_perfil;
-    private boolean ban=true;
+    private boolean ban;
 
     Servicios servicios;
 
@@ -85,7 +85,7 @@ public class RegistrarActivity extends AppCompatActivity implements View.OnClick
         rb_hombre = (RadioButton)findViewById(R.id.rb_hombre);
         rb_mujer = (RadioButton)findViewById(R.id.rb_mujer);
 
-
+        ban=true;
     }
 
     @Override
