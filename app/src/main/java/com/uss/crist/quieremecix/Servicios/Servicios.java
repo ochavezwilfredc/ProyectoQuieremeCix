@@ -105,12 +105,23 @@ public class Servicios {
         return code;
     }
 
+    public String codAleRatingBar() {
+        return String.valueOf((int) (Math.random() * 5 + 1));
 
-    /**
-     * Crear ID para google Maps
-     * keytool -list -v -keystore "debug.keystore" -alias androiddebugkey -storepass android -keypass android
-     *
-     *
-     */
+    }
+
+
+
+        /**
+         * Crear ID para google Maps
+         * keytool -list -v -keystore "debug.keystore" -alias androiddebugkey -storepass android -keypass android
+         *
+         * facebook key
+         *keytool -exportcert -alias androiddebugkey -keystore C:\Users\crist\.android\debug.keystore | C:\openssl\bin\openssl.exe sha1 -binary | C:\openssl\bin\openssl.exe base64
+
+           Snackbar.make(view, "Se presionó el FAB", Snackbar.LENGTH_LONG)
+           .setAction("Action", null).show()
+
+         */
 
 }
