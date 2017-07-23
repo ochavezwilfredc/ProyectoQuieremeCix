@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-07-2017 a las 19:23:54
+-- Tiempo de generación: 23-07-2017 a las 23:36:22
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 5.6.30
 
@@ -37,21 +37,18 @@ CREATE TABLE `articulo` (
   `eliminado` bit(1) DEFAULT NULL,
   `idtipo_articulo` int(11) NOT NULL,
   `idmascota` int(11) NOT NULL,
-  `idpersona` int(11) NOT NULL
+  `idpersona` int(11) NOT NULL,
+  `ratingBar` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `articulo`
 --
 
-INSERT INTO `articulo` (`idarticulo`, `titulo`, `fecha`, `lugar`, `latitud`, `longitud`, `descripcion`, `eliminado`, `idtipo_articulo`, `idmascota`, `idpersona`) VALUES
-(1, 'Búsqueda de mi Mascota', '2017-07-12 05:09:14', 'Derrama Magisterial Mz:P1 Lt:21', -6.753856875426512, -79.87139403820038, 'Ofrezco recomenzar  ante cualquier información comunicarse a #952234080 o 074320435 ', b'0', 1, 1, 1),
-(7, 'Búsqueda ', '2017-07-12 08:42:21', 'Av: Argentina Nro. 110 ', NULL, NULL, 'Por favor contactarse al siguiente número 963258743', b'0', 1, 2, 1),
-(11, 'busqueda', '2017-07-18 22:23:38', 'anguia', 17, 10, 'bla bla', b'0', 1, 6, 1),
-(13, 'Busco a mi mascota', '2017-07-22 17:50:56', 'Los sauces', -79.87139403820038, -6.753856875426512, 'Ofresco buena recommpenza ante cualquier consulta llame 96336963', b'0', 1, 7, 1),
-(14, 'Busco a mi mascota', '2017-07-23 15:44:15', 'Los sauces', -79.87139403820038, -6.753856875426512, 'Ofresco buena recommpenza ante cualquier consulta llame 96336963', b'0', 1, 7, 24),
-(15, 'Busco a mi mascota', '2017-07-23 16:35:41', 'Los sauces', -79.87139403820038, -6.753856875426512, 'Ofresco buena recommpenza ante cualquier consulta llame 96336963', b'0', 1, 7, 1),
-(16, 'Busco a mi mascota', '2017-07-23 16:36:56', 'Los sauces', -79.87139403820038, -6.753856875426512, 'Ofresco buena recommpenza ante cualquier consulta llame 96336963', b'0', 1, 7, 1);
+INSERT INTO `articulo` (`idarticulo`, `titulo`, `fecha`, `lugar`, `latitud`, `longitud`, `descripcion`, `eliminado`, `idtipo_articulo`, `idmascota`, `idpersona`, `ratingBar`) VALUES
+(1, 'Búsqueda de mi Mascota', '2017-07-12 05:09:14', 'Derrama Magisterial Mz:P1 Lt:21', -6.753856875426512, -79.87139403820038, 'Ofrezco recomenzar  ante cualquier información comunicarse a #952234080 o 074320435 ', b'0', 1, 1, 1, '1'),
+(7, 'Búsqueda ', '2017-07-12 08:42:21', 'Av: Argentina Nro. 110 ', NULL, NULL, 'Por favor contactarse al siguiente número 963258743', b'0', 1, 2, 1, '3'),
+(18, 'Busco a mi mascota', '2017-07-23 20:40:41', 'Los sauces', -79.87139403820038, -6.753856875426512, 'Ofresco buena recommpenza ante cualquier consulta llame 96336963', b'0', 1, 10, 1, '2');
 
 -- --------------------------------------------------------
 
@@ -99,13 +96,9 @@ CREATE TABLE `detalle_articulo` (
 --
 
 INSERT INTO `detalle_articulo` (`iddetalle_articulo`, `imagen`, `eliminado`, `idarticulo`) VALUES
-(1, 'mascota3.png', b'0', 1),
-(3, 'mascota4.png', b'0', 7),
-(5, 'mascota2.png', b'0', 11),
-(7, 'Pitbull98233.png', b'0', 13),
-(8, 'Pitbull109121.png', b'0', 14),
-(9, 'Pitbull135105.png', b'0', 15),
-(10, 'Pitbull68323.png', b'0', 16);
+(1, 'mascota1.png', b'0', 1),
+(3, 'mascota3.png', b'0', 7),
+(12, 'Pitbull24247.png', b'0', 18);
 
 -- --------------------------------------------------------
 
@@ -129,8 +122,7 @@ CREATE TABLE `mascota` (
 INSERT INTO `mascota` (`idmascota`, `raza`, `color`, `estado`, `eliminado`, `idtipo_mascota`) VALUES
 (1, 'Labrador', 'Blanco con manchas coloradas y negras', b'1', b'0', 1),
 (2, 'Rottweiler', 'Negro con manchas coloradas', b'1', b'0', 1),
-(6, 'bolldog', 'negro', b'1', b'0', 1),
-(7, 'bolldog', 'negro', b'1', b'0', 1);
+(10, 'Pitbull', 'Colorado con masnchas blancas', b'1', b'0', 1);
 
 -- --------------------------------------------------------
 
@@ -277,7 +269,7 @@ ALTER TABLE `tipo_mascota`
 -- AUTO_INCREMENT de la tabla `articulo`
 --
 ALTER TABLE `articulo`
-  MODIFY `idarticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `idarticulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT de la tabla `codigo_recuperacion`
 --
@@ -292,12 +284,12 @@ ALTER TABLE `comentario`
 -- AUTO_INCREMENT de la tabla `detalle_articulo`
 --
 ALTER TABLE `detalle_articulo`
-  MODIFY `iddetalle_articulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `iddetalle_articulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `mascota`
 --
 ALTER TABLE `mascota`
-  MODIFY `idmascota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idmascota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT de la tabla `persona`
 --
