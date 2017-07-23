@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:foreground="?attr/selectableItemBackground"
+    android:background="#CEF6F5"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+>
+    <TextView
+        android:id="@+id/textoNombreAutor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="false"
+        android:layout_centerInParent="false"
+        android:layout_centerVertical="false"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/imagenPost"
+        android:text="Nombre del Autor"
+        android:textAlignment="center"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/black"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textoAutor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Autor"
+        android:textSize="12sp"
+        android:layout_marginTop="12dp"
+        android:layout_below="@+id/textoNombreAutor"
+        android:layout_alignLeft="@+id/textoNombreAutor"
+        android:layout_alignStart="@+id/textoNombreAutor"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp" />
+
+    <ImageView
+        android:id="@+id/imagenPost"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_prueba_detalle"
+        android:transitionName="shared_image"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>
