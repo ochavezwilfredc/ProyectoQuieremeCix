@@ -5,26 +5,9 @@
     android:id="@+id/coordinatorNuevaDenuncia"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.uss.crist.quieremecix.Controlador.Denuncia.NuevaDenunciaActivity">
+    tools:context="com.uss.crist.quieremecix.Controlador.Adopcion.NuevaAdopcionActivity">
 
 
-    <!-- App Bar -->
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="126dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
-        <!-- Imagen del detalle -->
-        <ImageView
-            android:id="@+id/imagen_nuevaD"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_prueba_detalle"
-            android:transitionName="shared_image" />
-
-
-    </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/scroll"
@@ -42,7 +25,7 @@
             android:paddingTop="@dimen/activity_vertical_margin">
 
             <EditText
-                android:id="@+id/texto_tituloN"
+                android:id="@+id/texto_tituloN_Adop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/divider"
@@ -52,11 +35,11 @@
                 android:hint="@string/textoTitulo"
                 android:inputType="textAutoComplete"
                 android:padding="@dimen/edit_text_padding"
-                android:text="Busco a mi mascota"
+                android:text="Doy en Adopción"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <EditText
-                android:id="@+id/texto_LugarN"
+                android:id="@+id/texto_LugarN_Adop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/divider"
@@ -70,7 +53,7 @@
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <EditText
-                android:id="@+id/texto_RazaN"
+                android:id="@+id/texto_RazaN_Adop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/divider"
@@ -84,7 +67,7 @@
                 android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <EditText
-                android:id="@+id/texto_ColorN"
+                android:id="@+id/texto_ColorN_Adop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/divider"
@@ -105,7 +88,7 @@
                 android:padding="3dp">
 
                 <Button
-                    android:id="@+id/btn_tipoMascotaN"
+                    android:id="@+id/btn_tipoMascotaN_Adop"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -120,7 +103,7 @@
                     android:textColor="@android:color/darker_gray" />
 
                 <EditText
-                    android:id="@+id/texto_TipoMascotaN"
+                    android:id="@+id/texto_TipoMascotaN_Adop"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
@@ -137,7 +120,7 @@
             </LinearLayout>
 
             <EditText
-                android:id="@+id/texto_DescripcionN"
+                android:id="@+id/texto_DescripcionN_Adop"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/divider"
@@ -148,9 +131,9 @@
                 android:inputType="textMultiLine"
                 android:padding="@dimen/edit_text_padding"
                 android:scrollbars="vertical"
-                android:text="Ofresco buena recommpenza ante cualquier consulta llame 96336963"
+                android:text="Busco alguien quien me cuide llamar a #963369633"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-               />
+                 />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -163,7 +146,7 @@
                 android:padding="5dp">
 
                 <Button
-                    android:id="@+id/btn_aceptar_nuevaD"
+                    android:id="@+id/btn_aceptar_nuevaD_Adop"
                     style="@style/Widget.AppCompat.Button.Small"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -179,7 +162,7 @@
                     android:textStyle="bold" />
 
                 <Button
-                    android:id="@+id/btn_cancelar_nuevaD"
+                    android:id="@+id/btn_cancelar_nuevaD_Adop"
                     style="@style/Widget.AppCompat.Button.Small"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -199,5 +182,23 @@
 
 
     </android.support.v4.widget.NestedScrollView>
+
+    <!-- App Bar -->
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="126dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <!-- Imagen del detalle -->
+        <ImageView
+            android:id="@+id/imagen_nueva_Adop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_prueba_detalle"
+            android:transitionName="shared_image" />
+
+
+    </android.support.design.widget.AppBarLayout>
 
 </android.support.design.widget.CoordinatorLayout>

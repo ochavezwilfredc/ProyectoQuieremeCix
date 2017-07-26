@@ -23,7 +23,7 @@ public class DenunciasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_denuncias);
         // Obtener instancia de la lista
-        listView= (ListView) findViewById(R.id.listView);
+        listView= (ListView) findViewById(R.id.listView_denuncias);
 
         Bundle bundle = getIntent().getExtras();
         final String id_persona = bundle.getString(Constantes.KEY_ID);
@@ -38,8 +38,7 @@ public class DenunciasActivity extends AppCompatActivity {
 
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-                //adapter.obtenerDenuncia(position).getId();
-                //Toast.makeText(DenunciasActivity.this,String.valueOf(position),Toast.LENGTH_SHORT).show();
+
                 Intent intent = new Intent(DenunciasActivity.this,Detalle_DenunciaActivity.class);
                 intent.putExtra(Constantes.KEY_ID,adapter.obtenerDenuncia(position).getId());
                 startActivity(intent);

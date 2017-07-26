@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.uss.crist.quieremecix.Controlador.Adopcion.AdopcionActivity;
 import com.uss.crist.quieremecix.Controlador.Denuncia.DenunciasActivity;
 import com.uss.crist.quieremecix.Controlador.Ubicacion.UbicacionActivity;
 import com.uss.crist.quieremecix.Modelo.Unete_Actualizar;
@@ -79,6 +80,9 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.btn_adoptar:
+                Intent intent3 = new Intent(MenuActivity.this, AdopcionActivity.class);
+                intent3.putExtra(Constantes.KEY_ID,id_persona);
+                startActivity(intent3);
                 break;
 
             case R.id.btn_unete:

@@ -35,27 +35,24 @@
             android:parentActivityName=".Controlador.ActualizarPerfilActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.uss.crist.quieremecix.Controlador.ActualizarPerfilActivity"/>
-
-            </activity>
+                android:value="com.uss.crist.quieremecix.Controlador.ActualizarPerfilActivity" />
+        </activity>
         <activity
             android:name=".Controlador.PerfilActivity"
             android:label="@string/name_perfil"
             android:parentActivityName=".Controlador.PerfilActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.uss.crist.quieremecix.Controlador.PerfilActivity"/>
+                android:value="com.uss.crist.quieremecix.Controlador.PerfilActivity" />
         </activity>
-
         <activity
             android:name=".Controlador.ActulizarPasswordActivity"
             android:label="@string/name_actualizar_password"
             android:parentActivityName=".Controlador.ActulizarPasswordActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.uss.crist.quieremecix.Controlador.ActulizarPasswordActivity"/>
-            </activity>
-
+                android:value="com.uss.crist.quieremecix.Controlador.ActulizarPasswordActivity" />
+        </activity>
         <activity
             android:name=".Controlador.MenuActivity"
             android:label="@string/name_menu_principal" />
@@ -77,8 +74,7 @@
             android:parentActivityName=".Controlador.Ubicacion.UbicacionActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.uss.crist.quieremecix.Controlador.Ubicacion.UbicacionActivity"/>
-
+                android:value="com.uss.crist.quieremecix.Controlador.Ubicacion.UbicacionActivity" />
         </activity>
 
         <activity
@@ -87,35 +83,78 @@
             android:parentActivityName=".Controlador.RegistrarActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.uss.crist.quieremecix.Controlador.RegistrarActivity"
-                />
+                android:value="com.uss.crist.quieremecix.Controlador.RegistrarActivity" />
         </activity>
 
         <activity
             android:name=".Controlador.Denuncia.DenunciasActivity"
-            android:label="@string/nampe_denuncia" />
-
+            android:label="@string/nampe_denuncia"
+            android:parentActivityName=".Controlador.Denuncia.DenunciasActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.uss.crist.quieremecix.Controlador.Denuncia.DenunciasActivity" />
+            </activity>
 
         <activity android:name=".Controlador.LoginActivity" />
 
         <activity
             android:name=".Controlador.Denuncia.Detalle_DenunciaActivity"
             android:label="@string/app_name_detalle_denuncia"
-            android:parentActivityName=".Controlador.Denuncia.Detalle_DenunciaActivity" >
-                <meta-data
-                    android:name="android.support.PARENT_ACTIVITY"
-                    android:value="com.uss.crist.quieremecix.Controlador.Denuncia.Detalle_DenunciaActivity"
-                 />
+            android:parentActivityName=".Controlador.Denuncia.Detalle_DenunciaActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.uss.crist.quieremecix.Controlador.Denuncia.Detalle_DenunciaActivity" />
         </activity>
 
         <activity
             android:name=".Controlador.Denuncia.NuevaDenunciaActivity"
             android:label="@string/app_name_nueva_denuncia"
-            android:parentActivityName=".Controlador.Denuncia.NuevaDenunciaActivity" >
+            android:parentActivityName=".Controlador.Denuncia.NuevaDenunciaActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.uss.crist.quieremecix.Controlador.Denuncia.NuevaDenunciaActivity"
-                />
+                android:value="com.uss.crist.quieremecix.Controlador.Denuncia.NuevaDenunciaActivity" />
+        </activity>
+        <activity
+            android:name=".Controlador.RecuperarCuentaActivity"
+            android:label="@string/app_name_validar_cod"
+            android:parentActivityName=".Controlador.RecuperarCuentaActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.uss.crist.quieremecix.Controlador.RecuperarCuentaActivity" />
+        </activity>
+        <activity
+            android:name=".Controlador.VerificarCodigoActivity"
+            android:label="@string/app_name_validar_cod"
+            android:parentActivityName=".Controlador.VerificarCodigoActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.uss.crist.quieremecix.Controlador.VerificarCodigoActivity" />
+        </activity>
+        <activity
+            android:name=".Controlador.Adopcion.AdopcionActivity"
+            android:label="@string/app_name_adopciones"
+            android:parentActivityName=".Controlador.Adopcion.AdopcionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.uss.crist.quieremecix.Controlador.Adopcion.AdopcionActivity">
+            </meta-data>
+            </activity>
+
+        <activity android:name=".Controlador.Adopcion.Detalle_AdopcionActivity"
+            android:label="@string/app_name_detalle_adopcion"
+            android:parentActivityName=".Controlador.Adopcion.Detalle_AdopcionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.uss.crist.quieremecix.Controlador.Adopcion.Detalle_AdopcionActivity">
+            </meta-data>
+            </activity>
+
+        <activity android:name=".Controlador.Adopcion.NuevaAdopcionActivity"
+            android:label="@string/app_name_nueva_adopcion"
+            android:parentActivityName=".Controlador.Adopcion.NuevaAdopcionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.uss.crist.quieremecix.Controlador.Adopcion.NuevaAdopcionActivity" />
         </activity>
     </application>
 

@@ -45,7 +45,7 @@ import java.util.List;
 public class LoginActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>, View.OnClickListener {
     Button btn_crear, btn_entrar;
     CheckBox cb_recordarme;
-    TextView et_olvidar;
+    TextView texto_olvidar;
     private int op;
     Servicios servicios;
     private UserLoginTask mAuthTask = null;
@@ -66,8 +66,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        et_olvidar =(TextView)findViewById(R.id.olvidar_text);
-        et_olvidar.setOnClickListener(this);
+        texto_olvidar =(TextView)findViewById(R.id.olvidar_text);
+        texto_olvidar.setOnClickListener(this);
 
         btn_crear = (Button)findViewById(R.id.btn_crear);
         btn_crear.setOnClickListener(this);
@@ -118,7 +118,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
                 LoginActivity.this.logear();
                 break;
             case R.id.olvidar_text:
-                //startActivity(new Intent(LoginActivity.this,RecuperarPassActivity.class));
+                startActivity(new Intent(LoginActivity.this,RecuperarCuentaActivity.class));
                 break;
         }
     }

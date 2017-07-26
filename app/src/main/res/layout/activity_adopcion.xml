@@ -5,12 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.uss.crist.quieremecix.Controlador.Denuncia.DenunciasActivity">
+    tools:context="com.uss.crist.quieremecix.Controlador.Adopcion.AdopcionActivity">
 
-    <include layout="@layout/content_denuncia" />
+    <include layout="@layout/content_adopcion" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_nueva_denuncia"
+        android:id="@+id/fab_nueva_adopcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
@@ -18,4 +18,3 @@
         app:srcCompat="@drawable/ic_more" />
 
 </android.support.design.widget.CoordinatorLayout>
-

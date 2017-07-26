@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context="com.uss.crist.quieremecix.Controlador.VerificarCodigoActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/info_t"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/info_cod"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <View
+            android:id="@+id/div_rp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/info_t"
+            android:layout_marginBottom="@dimen/padding_between"
+            android:layout_marginTop="5dp"
+            android:background="#C8C9CB" />
+
+        <TextView
+            android:id="@+id/info_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="53dp"
+            android:gravity="center"
+            android:paddingBottom="@dimen/padding_between"
+            android:paddingTop="@dimen/padding_between"
+            android:text="@string/info_textoCodigo"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_alignTop="@+id/info_t"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:id="@+id/texto_codigo_validacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/info_text"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_text_border"
+            android:ems="10"
+            android:hint="Código..."
+            android:inputType="textEmailAddress"
+            android:padding="@dimen/edit_text_padding"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_alignLeft="@+id/info_text"
+            android:layout_alignStart="@+id/info_text"
+            android:layout_alignRight="@+id/info_text"
+            android:layout_alignEnd="@+id/info_text" />
+
+        <LinearLayout
+            android:id="@+id/ll_botones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/texto_codigo_validacion"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_aceptar_codVer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/colorPrimary"
+                android:text="Aceptar"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/btn_cancelar_codVer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/red"
+                android:text="Cancelar"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/div_rr2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/ll_botones"
+            android:layout_marginBottom="@dimen/padding_between"
+            android:layout_marginTop="20dp"
+            android:background="#C8C9CB" />
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

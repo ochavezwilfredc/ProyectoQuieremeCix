@@ -54,7 +54,7 @@
     <string name="error_invalid_email">Esta dirección de correo electrónico no es válida.</string>
     <string name="error_invalid_password">Esta contraseña es demasiado corta</string>
     <string name="error_incorrect_password">Esta contraseña es incorrecta</string>
-    <string name="error_field_required">este campo es requerido</string>
+    <string name="error_field_required">Este campo es requerido</string>
     <string name="permission_rationale">"Se necesitan permisos de contactos para proporcionar terminaciones de correo electrónico."
     </string>
 
@@ -102,5 +102,12 @@
     <string name="error_color">Error Color</string>
     <string name="error_tipo_mascota">Error Tipo Mascota</string>
     <string name="error_descripcion_mascota">Error descripción</string>
+    <string name="app_getCode">Ingresar Código</string>
+    <string name="app_name_validar_cod">Validar Código</string>
+    <string name="info_cod">Código Verificación</string>
+    <string name="info_textoCodigo">Verifique su correo y ingrese e código de verificación</string>
+    <string name="app_name_adopciones">Listado de Adopciones</string>
+    <string name="app_name_detalle_adopcion">Detalle de Adopción</string>
+    <string name="app_name_nueva_adopcion">Nueva Adopción</string>
 
 </resources>

@@ -7,14 +7,14 @@
 
     <!-- App Bar -->
     <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar"
+        android:id="@+id/app_bar_ado"
         android:layout_width="match_parent"
         android:layout_height="256dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <!-- Imagen del detalle -->
         <ImageView
-            android:id="@+id/detalle_imagen"
+            android:id="@+id/detalle_imagen_ado"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/ic_prueba_detalle"
@@ -23,19 +23,9 @@
 
     </android.support.design.widget.AppBarLayout>
     <!-- FAB -->
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_localizacion"
-        android:layout_width="@dimen/size_fab"
-        android:layout_height="@dimen/size_fab"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_location_det"
-        app:borderWidth="0dp"
-        app:elevation="@dimen/fab_elevation"
-        app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom|right|end" />
 
     <android.support.v4.widget.NestedScrollView
-        android:id="@+id/scroll"
+        android:id="@+id/scroll_ado"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -51,7 +41,7 @@
 
 
             <TextView
-                android:id="@+id/detalle_titulo"
+                android:id="@+id/detalle_titulo_ado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -62,7 +52,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/detalle_fecha"
+                android:id="@+id/detalle_fecha_ado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -79,13 +69,13 @@
                 android:textColor="?colorPrimary" />
 
             <TextView
-                android:id="@+id/detalle_descripcion"
+                android:id="@+id/detalle_descripcion_ado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Descripción" />
 
             <RatingBar
-                android:id="@+id/detalle_rating"
+                android:id="@+id/detalle_rating_ado"
                 style="?android:attr/ratingBarStyleSmall"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -97,7 +87,7 @@
                 android:secondaryProgressTint="#FDDB39" />
 
             <TextView
-                android:id="@+id/detalle_autor"
+                android:id="@+id/detalle_autor_ado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Autor" />
@@ -108,5 +98,4 @@
 
 
 </android.support.design.widget.CoordinatorLayout>
-
 

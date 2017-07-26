@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -28,12 +29,13 @@ import org.json.JSONObject;
 import java.util.List;
 
 public class Detalle_DenunciaActivity extends AppCompatActivity {
-    String id_articulo;
+    String id_articulo, rating, tipo_articulo;
     Servicios servicios;
 
     private ImageView detalleImagen;
     private TextView detalleTitulo, detalleFecha, detalleDescripcion, detalleAutor;
     private FloatingActionButton fab_localizacion;
+    private RatingBar ratingBar;
 
     // Atributos
     JsonObjectRequest jsArrayRequest;
@@ -49,13 +51,16 @@ public class Detalle_DenunciaActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         id_articulo =  bundle.getString(Constantes.KEY_ID);
-        //servicios.mensaje(Detalle_DenunciaActivity.this,id_articulo);
+        tipo_articulo = bundle.getString(Constantes.KEY_TIPO_ARTICULO);
 
         detalleTitulo =(TextView)findViewById(R.id.detalle_titulo);
         detalleFecha =(TextView)findViewById(R.id.detalle_fecha);
         detalleDescripcion =(TextView)findViewById(R.id.detalle_descripcion);
         detalleAutor =(TextView)findViewById(R.id.detalle_autor);
         detalleImagen = (ImageView)findViewById(R.id.detalle_imagen);
+
+        ratingBar =(RatingBar)findViewById(R.id.detalle_rating);
+
         fab_localizacion = (FloatingActionButton)findViewById(R.id.fab_localizacion);
         peticionDatos();
 
@@ -105,6 +110,7 @@ public class Detalle_DenunciaActivity extends AppCompatActivity {
         detalleFecha.setText(denuncia.getFecha());
         detalleDescripcion.setText(denuncia.getDescripcion());
         detalleAutor.setText("Autor: "+denuncia.getNom_ape());
+        ratingBar.setRating(Float.parseFloat(denuncia.getRatingBar()));
         // Petición para obtener la imagen
         ImageRequest request = new ImageRequest(
                 Constantes.URL_BASE + denuncia.getImagen(),
@@ -150,7 +156,8 @@ public class Detalle_DenunciaActivity extends AppCompatActivity {
                             objeto.getString("color"),
                             objeto.getString("lugar"),
                             objeto.getString("imagen"),
-                            objeto.getString("nom_ape"));
+                            objeto.getString("nom_ape"),
+                            objeto.getString("ratingBar"));
 
 
                     art=denuncia;

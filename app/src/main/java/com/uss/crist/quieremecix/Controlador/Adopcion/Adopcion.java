@@ -1,12 +1,10 @@
-package com.uss.crist.quieremecix.Controlador.Denuncia;
-
-import static android.R.string.no;
+package com.uss.crist.quieremecix.Controlador.Adopcion;
 
 /**
- * Created by crist on 11/07/2017.
+ * Created by crist on 25/07/2017.
  */
 
-public class Denuncia {
+public class Adopcion {
     // Atributos
     private String id;
     private String titulo;
@@ -21,53 +19,11 @@ public class Denuncia {
     private String imagen;
     private String nom_ape;
     private String ratingBar;
-    private String tipo_articulo;
 
-    public Denuncia() {
+    public Adopcion() {
     }
 
-    public Denuncia(String id, String titulo, String fecha, String latitud, String longitud, String descripcion, String tipo_mas, String raza, String color, String lugar, String imagen, String nom_ape, String ratingBar, String tipo_articulo) {
-        this.id = id;
-        this.titulo = titulo;
-        this.fecha = fecha;
-        this.latitud = latitud;
-        this.longitud = longitud;
-        this.descripcion = descripcion;
-        this.tipo_mas = tipo_mas;
-        this.raza = raza;
-        this.color = color;
-        this.lugar = lugar;
-        this.imagen = imagen;
-        this.nom_ape = nom_ape;
-        this.ratingBar = ratingBar;
-        this.tipo_articulo = tipo_articulo;
-    }
-
-    public String getTipo_articulo() {
-        return tipo_articulo;
-    }
-
-    public void setTipo_articulo(String tipo_articulo) {
-        this.tipo_articulo = tipo_articulo;
-    }
-
-    public Denuncia(String id, String titulo, String fecha, String latitud, String longitud, String descripcion, String tipo_mas, String raza, String color, String lugar, String imagen, String nom_ape) {
-        this.id = id;
-        this.titulo = titulo;
-        this.fecha = fecha;
-        this.latitud = latitud;
-        this.longitud = longitud;
-        this.descripcion = descripcion;
-        this.tipo_mas = tipo_mas;
-        this.raza = raza;
-        this.color = color;
-        this.lugar = lugar;
-        this.imagen = imagen;
-        this.nom_ape = nom_ape;
-    }
-
-
-    public Denuncia(String id, String titulo, String fecha, String latitud, String longitud, String descripcion, String tipo_mas, String raza, String color, String lugar, String imagen, String nom_ape, String ratingBar) {
+    public Adopcion(String id, String titulo, String fecha, String latitud, String longitud, String descripcion, String tipo_mas, String raza, String color, String lugar, String imagen, String nom_ape, String ratingBar) {
         this.id = id;
         this.titulo = titulo;
         this.fecha = fecha;
@@ -82,7 +38,6 @@ public class Denuncia {
         this.nom_ape = nom_ape;
         this.ratingBar = ratingBar;
     }
-
 
     public String getId() {
         return id;
@@ -124,6 +79,14 @@ public class Denuncia {
         this.longitud = longitud;
     }
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
     public String getTipo_mas() {
         return tipo_mas;
     }
@@ -156,14 +119,6 @@ public class Denuncia {
         this.lugar = lugar;
     }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
     public String getImagen() {
         return imagen;
     }
@@ -187,11 +142,4 @@ public class Denuncia {
     public void setRatingBar(String ratingBar) {
         this.ratingBar = ratingBar;
     }
-
-    public String toString(){
-        return id+titulo+fecha+latitud+longitud+lugar+raza+color+descripcion+imagen+nom_ape;
-    }
-
-
 }
-

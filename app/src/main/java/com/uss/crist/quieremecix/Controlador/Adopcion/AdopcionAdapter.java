@@ -1,5 +1,4 @@
-package com.uss.crist.quieremecix.Controlador.Denuncia;
-
+package com.uss.crist.quieremecix.Controlador.Adopcion;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -17,8 +16,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
-
-import com.uss.crist.quieremecix.Controlador.RegistrarActivity;
 import com.uss.crist.quieremecix.Modelo.VolleySingleton;
 import com.uss.crist.quieremecix.R;
 import com.uss.crist.quieremecix.Servicios.Constantes;
@@ -32,19 +29,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by crist on 11/07/2017.
+ * Created by crist on 25/07/2017.
  */
 
-public class DenunciaAdapter extends ArrayAdapter {
+public class AdopcionAdapter extends ArrayAdapter {
 
     // Atributos
     JsonObjectRequest jsArrayRequest;
     private static final String TAG = "PostAdapter";
-   public static List<Denuncia> denuncias;
+    public static List<Adopcion> adopciones;
     Servicios servicios;
 
 
-    public DenunciaAdapter(Context context) {
+    public AdopcionAdapter(Context context) {
         super(context,0);
         //Crear objeto servicios
         servicios = new Servicios();
@@ -53,12 +50,12 @@ public class DenunciaAdapter extends ArrayAdapter {
         // Nueva petición JSONObject
         jsArrayRequest = new JsonObjectRequest(
                 Request.Method.GET,
-                Constantes.GET_DENUNCIAS,
+                Constantes.GET_ADOPCIONES,
                 null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        denuncias = parseJson(response);
+                        adopciones = parseJson(response);
                         notifyDataSetChanged();
                     }
                 },
@@ -79,41 +76,41 @@ public class DenunciaAdapter extends ArrayAdapter {
 
     @Override
     public int getCount() {
-        return denuncias != null ? denuncias.size() : 0;
+        return adopciones != null ? adopciones.size() : 0;
     }
 
 
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
 
-            LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
 
-            // Referencia del view procesado
-            View listItemView;
+        // Referencia del view procesado
+        View listItemView;
 
-            //Comprobando si el View no existe
-            listItemView = null == convertView ? layoutInflater.inflate(
-                    R.layout.post_denuncia,
-                    parent,
-                    false) : convertView;
+        //Comprobando si el View no existe
+        listItemView = null == convertView ? layoutInflater.inflate(
+                R.layout.post_adopcion,
+                parent,
+                false) : convertView;
 
 
-            // Obtener el item actual
-            Denuncia item = denuncias.get(position);
+        // Obtener el item actual
+        Adopcion item = adopciones.get(position);
         //servicios.mensaje((Activity) getContext(),item.getId());
 
         // Obtener Views
         TextView textoTitulo = (TextView) listItemView.
-                findViewById(R.id.textoTitulo);
+                findViewById(R.id.textoTitulo_ado);
         TextView textoAutor = (TextView) listItemView.
-                findViewById(R.id.textoAutor);
+                findViewById(R.id.textoAutor_ado);
         TextView textoRaza = (TextView) listItemView.
-                findViewById(R.id.textoRaza);
+                findViewById(R.id.textoRaza_ado);
 
-        RatingBar ratingBar =(RatingBar)listItemView.findViewById(R.id.rating);
+        RatingBar ratingBar =(RatingBar)listItemView.findViewById(R.id.rating_ado);
 
         final ImageView imagenPost = (ImageView) listItemView.
-                findViewById(R.id.imagenPost);
+                findViewById(R.id.imagenPost_ado);
 
         // Actualizar los Views
         textoTitulo.setText(item.getTitulo());
@@ -142,27 +139,27 @@ public class DenunciaAdapter extends ArrayAdapter {
 
         return listItemView;
     }
-    public Denuncia obtenerDenuncia(int post){
+    public Adopcion obtenerAdopcion(int post){
         // Obtener el item actual
-        Denuncia item = denuncias.get(post);
+        Adopcion item = adopciones.get(post);
 
         return item;
     }
 
-    public List<Denuncia> parseJson(JSONObject jsonObject){
+    public List<Adopcion> parseJson(JSONObject jsonObject){
         // Variables locales
-        List<Denuncia> posts = new ArrayList<>();
+        List<Adopcion> posts = new ArrayList<>();
         JSONArray jsonArray= null;
         try {
             // Obtener el array del objeto
-            jsonArray = jsonObject.getJSONArray("denuncias");
+            jsonArray = jsonObject.getJSONArray("adopciones");
 
             for(int i=0; i<jsonArray.length(); i++){
 
                 try {
                     JSONObject objeto= jsonArray.getJSONObject(i);
 
-                    Denuncia post = new Denuncia(
+                    Adopcion post = new Adopcion(
                             objeto.getString("id"),
                             objeto.getString("titulo"),
                             objeto.getString("fecha"),
@@ -176,7 +173,7 @@ public class DenunciaAdapter extends ArrayAdapter {
                             objeto.getString("imagen"),
                             objeto.getString("nom_ape"),
                             objeto.getString("ratingBar")
-                            );
+                    );
                     posts.add(post);
 
                 } catch (JSONException e) {

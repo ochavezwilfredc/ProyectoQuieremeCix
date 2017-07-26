@@ -1,6 +1,5 @@
-package com.uss.crist.quieremecix.Controlador.Denuncia;
+package com.uss.crist.quieremecix.Controlador.Adopcion;
 
-import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,7 +10,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Base64;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -24,8 +22,8 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.uss.crist.quieremecix.Controlador.ActualizarPerfilActivity;
 import com.uss.crist.quieremecix.Controlador.LoginActivity;
-import com.uss.crist.quieremecix.Controlador.RegistrarActivity;
 import com.uss.crist.quieremecix.Modelo.VolleySingleton;
 import com.uss.crist.quieremecix.R;
 import com.uss.crist.quieremecix.Servicios.Constantes;
@@ -36,7 +34,7 @@ import java.io.IOException;
 import java.util.Hashtable;
 import java.util.Map;
 
-public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnClickListener{
+public class NuevaAdopcionActivity extends AppCompatActivity implements View.OnClickListener {
     private int PICK_IMAGE_REQUEST = 1;
     private Bitmap bitmap;
 
@@ -50,62 +48,83 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nueva_denuncia);
+        setContentView(R.layout.activity_nueva_adopcion);
+
         servicios = new Servicios();
 
         Bundle bundle = getIntent().getExtras();
-         id_persona = bundle.getString(Constantes.KEY_ID);
+        id_persona = bundle.getString(Constantes.KEY_ID);
 
-        imageView = (ImageView)findViewById(R.id.imagen_nuevaD);
+        imageView = (ImageView)findViewById(R.id.imagen_nueva_Adop);
         imageView.setOnClickListener(this);
 
-        textoTitulo = (EditText)findViewById(R.id.texto_tituloN);
-        textoLugar = (EditText)findViewById(R.id.texto_LugarN);
-        textoRaza = (EditText)findViewById(R.id.texto_RazaN);
-        textoColor = (EditText)findViewById(R.id.texto_ColorN);
-        textoTipoMasc = (EditText)findViewById(R.id.texto_TipoMascotaN);
-        textoDescripcion = (EditText)findViewById(R.id.texto_DescripcionN);
+        textoTitulo = (EditText)findViewById(R.id.texto_tituloN_Adop);
+        textoLugar = (EditText)findViewById(R.id.texto_LugarN_Adop);
+        textoRaza = (EditText)findViewById(R.id.texto_RazaN_Adop);
+        textoColor = (EditText)findViewById(R.id.texto_ColorN_Adop);
+        textoTipoMasc = (EditText)findViewById(R.id.texto_TipoMascotaN_Adop);
+        textoDescripcion = (EditText)findViewById(R.id.texto_DescripcionN_Adop);
 
-        btn_tipoMascota = (Button)findViewById(R.id.btn_tipoMascotaN);
+        btn_tipoMascota = (Button)findViewById(R.id.btn_tipoMascotaN_Adop);
         btn_tipoMascota.setOnClickListener(this);
 
-        btn_aceptar = (Button)findViewById(R.id.btn_aceptar_nuevaD);
+        btn_aceptar = (Button)findViewById(R.id.btn_aceptar_nuevaD_Adop);
         btn_aceptar.setOnClickListener(this);
 
-        btn_cancelar = (Button)findViewById(R.id.btn_cancelar_nuevaD);
+        btn_cancelar = (Button)findViewById(R.id.btn_cancelar_nuevaD_Adop);
         btn_cancelar.setOnClickListener(this);
-
-
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.imagen_nuevaD:
+            case R.id.imagen_nueva_Adop:
                 showFileChooser();
                 break;
-            case R.id.btn_tipoMascotaN:
+            case R.id.btn_tipoMascotaN_Adop:
                 //alertSimpleListView();
                 getTipoMascota();
                 break;
 
-            case R.id.btn_aceptar_nuevaD:
+            case R.id.btn_aceptar_nuevaD_Adop:
                 if (validar()){
-                    RegistrarDenuncia();
-
+                    RegistrarAdopcion();
                 }
                 break;
 
-            case R.id.btn_cancelar_nuevaD:
+            case R.id.btn_cancelar_nuevaD_Adop:
                 salir().show();
                 break;
         }
     }
 
+    public AlertDialog salir() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(NuevaAdopcionActivity.this);
+
+        builder.setTitle("Aviso")
+                .setIcon(R.drawable.ic_warning)
+                .setMessage("¿ Esta seguro de eliminar los cambios ?")
+                .setNegativeButton("CANCELAR",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        })
+                .setPositiveButton("CONFIRMAR",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        });
+
+        return builder.create();
+    }
+
 
     public void getTipoMascota(){
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(NuevaDenunciaActivity.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(NuevaAdopcionActivity.this);
 
         // Set the dialog title
 
@@ -171,12 +190,12 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
                                 textoDescripcion.findFocus();
                             }else{
                                 if(ban){
-                                    Toast toast = Toast.makeText(NuevaDenunciaActivity.this,"Error - Seleccione una imgaen!",Toast.LENGTH_LONG);
+                                    Toast toast = Toast.makeText(NuevaAdopcionActivity.this,"Error - Seleccione una imgaen!",Toast.LENGTH_LONG);
                                     toast.setGravity(Gravity.CENTER| Gravity.CENTER,0,0);
                                     toast.show();
                                     imageView.requestFocus();
                                 }else{
-                                ok=true;}
+                                    ok=true;}
                             }
                         }
                     }
@@ -188,30 +207,7 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
     }
 
 
-    public AlertDialog salir() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(NuevaDenunciaActivity.this);
 
-        builder.setTitle("Aviso")
-                .setIcon(R.drawable.ic_warning)
-                .setMessage("¿ Esta seguro ?")
-
-                .setPositiveButton("Aceptar",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                startActivity(new Intent(NuevaDenunciaActivity.this, LoginActivity.class));
-                            }
-                        })
-                .setNegativeButton("CANCELAR",
-                        new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                finish();
-                            }
-                        });
-
-        return builder.create();
-    }
 
 
     private void showFileChooser() {
@@ -251,13 +247,13 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
     //---------------------------------------------------------------------------------------------------------
 
 
-    //--------------- Registrar Denuncia ------------------
+    //--------------- Registrar Adopcion ------------------
 
-    private void RegistrarDenuncia(){
+    private void RegistrarAdopcion(){
 
         //Mostrar el diálogo de progreso
-        final ProgressDialog loading = ProgressDialog.show(NuevaDenunciaActivity.this,"Registrando...","Espere por favor...",false,false);
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constantes.INSERTAR_DENUNCIA,
+        final ProgressDialog loading = ProgressDialog.show(NuevaAdopcionActivity.this,"Registrando...","Espere por favor...",false,false);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, Constantes.INSERTAR_ADOPCION,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
@@ -265,10 +261,11 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
                         if (loading.isShowing())
                             loading.dismiss();
                         //Mostrando el mensaje de la respuesta
-                        Toast.makeText(NuevaDenunciaActivity.this, s , Toast.LENGTH_LONG).show();
+                        Toast.makeText(NuevaAdopcionActivity.this, s , Toast.LENGTH_LONG).show();
 
                         //finish();
-                        volver_list_denuncias();
+                        volver_list_adopciones();
+
                     }
                 },
                 new Response.ErrorListener() {
@@ -279,7 +276,7 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
                             loading.dismiss();
 
                         //Showing toast
-                        Toast.makeText(NuevaDenunciaActivity.this, volleyError.getMessage().toString(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(NuevaAdopcionActivity.this, volleyError.getMessage().toString(), Toast.LENGTH_LONG).show();
                         finish();
 
                     }
@@ -297,10 +294,8 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
                 String longitud="-6.753856875426512";//ejemplo aca agregamos lat y long
                 String latitud ="-79.87139403820038";
                 String descripcion =  textoDescripcion.getText().toString().trim();
-                String nombre_foto =  "animal_denuncia"+servicios.codigoAleatorio()+".png";
+                String nombre_foto =  "animal_ado"+servicios.codigoAleatorio()+".png";
 
-                //servicios.mensaje(NuevaDenunciaActivity.this,raza+color+tipo_mascota);
-                //Log.d("Mascota:       ...x ",raza+color+tipo_mascota);
 
                 //Creación de parámetros
                 Map<String,String> params = new Hashtable<String, String>();
@@ -325,13 +320,13 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
         };
 
         //Agregar solicitud a la cola
-        VolleySingleton.getInstance(NuevaDenunciaActivity.this).addToRequestQueue(stringRequest);
+        VolleySingleton.getInstance(NuevaAdopcionActivity.this).addToRequestQueue(stringRequest);
     }
 
     //-----------------------------------------------------
 
-    public void volver_list_denuncias(){
-        Intent intent = new Intent(NuevaDenunciaActivity.this,DenunciasActivity.class);
+    public void volver_list_adopciones(){
+        Intent intent = new Intent(NuevaAdopcionActivity.this,AdopcionActivity.class);
         intent.putExtra(Constantes.KEY_ID,id_persona);
         startActivity(intent);
 

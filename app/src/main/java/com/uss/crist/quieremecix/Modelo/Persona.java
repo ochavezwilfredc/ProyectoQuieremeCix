@@ -10,6 +10,11 @@ public class Persona {
     public Persona() {
     }
 
+    public Persona(String id, String correo) {
+        this.id = id;
+        this.correo = correo;
+    }
+
     public Persona(String id, String nom_ape, String fecha_nac, String sexo, String dni, String telefono, String correo, String foto) {
         this.id = id;
         this.nom_ape = nom_ape;

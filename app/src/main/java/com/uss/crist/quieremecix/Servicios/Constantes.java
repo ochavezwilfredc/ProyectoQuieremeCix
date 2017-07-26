@@ -15,7 +15,7 @@ public class Constantes {
     /**
      * Dirección IP AVD
      */
-    private static final String IP = "192.168.0.23";
+    private static final String IP = "192.168.1.35";
     private static final String SERVIDOR = "http://quieremeong.creating-solutions.net/v1/";
 
     /**
@@ -34,8 +34,13 @@ public class Constantes {
     public static final String UPDATE_PASSWORD = "http://" + IP + PUERTO_HOST + "/quieremeCix/actualizar_passwordID.php";
     public static final String GET_DENUNCIAID= "http://" + IP + PUERTO_HOST + "/quieremeCix/consultar_denunciaID.php?id=";
     public static final String INSERTAR_DENUNCIA = "http://" + IP + PUERTO_HOST + "/quieremeCix/registrar_denuncia.php";
-    public static final String GET_IMAGENES = "http://" + IP + PUERTO_HOST + "/quieremeCix/uploads/";
+    public static final String GET_PER_EMAIL = "http://" + IP + PUERTO_HOST + "/quieremeCix/consulta_email.php?email=";
+    public static final String SEND_EMAIL_PERSONA = "http://" + SERVIDOR + "email/enviarEmailID.php";
 
+    public static final String GET_ADOPCIONES = "http://" + IP + PUERTO_HOST + "/quieremeCix/consultar_adopciones.php";
+    public static final String GET_ADOPCIONID= "http://" + IP + PUERTO_HOST + "/quieremeCix/consultar_adopcionID.php?id=";
+
+    public static final String INSERTAR_ADOPCION = "http://" + IP + PUERTO_HOST + "/quieremeCix/registrar_adopcion.php";
 
 
 
@@ -68,6 +73,8 @@ public class Constantes {
     public static final String KEY_LONGITUD = "longitud";
     public static final String KEY_DESCRIPCION = "descripcion";
     public static final String KEY_ID_PERSONA = "id_persona";
+    public static final String KEY_RATINGBAR = "ratingBar";
 
-
+    public static final String KEY_CODIGO = "codigo" ;
+    public static final String KEY_TIPO_ARTICULO ="tipo_articulo" ;
 }
