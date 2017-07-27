@@ -39,7 +39,7 @@ import java.util.Map;
 public class RecuperarCuentaActivity extends AppCompatActivity implements View.OnClickListener{
     private EditText et_correo;
     private  Button btn_buscar, btn_cancelar;
-    public String id_perb, email_perb;
+    public String id_perb, email_perb, codigo_rec;
     Servicios servicios;
 
     JsonObjectRequest jsArrayRequest;
@@ -72,16 +72,21 @@ public class RecuperarCuentaActivity extends AppCompatActivity implements View.O
                         et_correo.requestFocus();
                     }else{
                         enviarCodigo();
-                        Intent intent = new Intent(RecuperarCuentaActivity.this, VerificarCodigoActivity.class);
-                        intent.putExtra(Constantes.KEY_ID,id_perb);
-                        intent.putExtra(Constantes.KEY_EMAIL,email_perb);
-                        startActivity(intent);
+                        if (codigo_rec.equals(et_correo.getText().toString().trim())){
+                            Intent intent = new Intent(RecuperarCuentaActivity.this, VerificarCodigoActivity.class);
+                            intent.putExtra(Constantes.KEY_ID,id_perb);
+                            intent.putExtra(Constantes.KEY_EMAIL,email_perb);
+                            startActivity(intent);
+                        }else{
+                            servicios.mensaje(RecuperarCuentaActivity.this,"Código ingresado es incorrecto");
+                        }
+
                     }
                 }else{
                     }
                 break;
             case R.id.btn_cancelar_rc:
-                onCancelar();
+                salir().show();
                 break;
         }
     }
@@ -107,27 +112,27 @@ public class RecuperarCuentaActivity extends AppCompatActivity implements View.O
 
 
 
-    private void onCancelar(){
-        AlertDialog.Builder dialogo1 = new AlertDialog.Builder(this);
-        dialogo1.setTitle("Aviso");
-        dialogo1.setIcon(R.drawable.ic_warning);
-        dialogo1.setMessage("¿ Esta seguro de cancelar ?");
-        dialogo1.setCancelable(false);
-        dialogo1.setPositiveButton("Confirmar", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialogo1, int id) {
-                aceptar();
-            }
-        });
-        dialogo1.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialogo1, int id) {
-                //cancelar();
-            }
-        });
-        dialogo1.show();
-    }
+    public AlertDialog salir() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(RecuperarCuentaActivity.this);
 
-    public void aceptar() {
-        finish();
+        builder.setTitle("Aviso")
+                .setIcon(R.drawable.ic_warning)
+                .setMessage("¿ Esta seguro ?")
+                .setNegativeButton("CANCELAR",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                            }
+                        })
+                .setPositiveButton("CONFIRMAR",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        });
+
+        return builder.create();
     }
 
 //******************* get email  *******
@@ -221,7 +226,7 @@ public void getPersonaEmail(){
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 //Convertir bits a cadena
-                String codigo =  servicios.codigoAleatorio();
+                codigo_rec =  servicios.codigoAleatorio();
 
                 //Creación de parámetros
                 Map<String,String> params = new Hashtable<String, String>();
@@ -229,7 +234,7 @@ public void getPersonaEmail(){
                 //Agregando de parámetros
                 params.put(Constantes.KEY_ID, id_perb);
                 params.put(Constantes.KEY_EMAIL, email_perb);
-                params.put(Constantes.KEY_CODIGO, codigo);
+                params.put(Constantes.KEY_CODIGO, codigo_rec);
 
                 //Parámetros de retorno
                 return params;

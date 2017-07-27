@@ -150,7 +150,7 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
             textoTitulo.setError(getString(R.string.error_titulo));
             textoTitulo.findFocus();
         }else{
-            if(!servicios.validarNombre(textoLugar.getText().toString())){
+            if(textoLugar.getText().toString().length()==0){
                 textoLugar.setError(getString(R.string.error_lugar));
                 textoLugar.findFocus();
             }else{

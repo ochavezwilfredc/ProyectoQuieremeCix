@@ -1,9 +1,36 @@
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <!-- App Bar -->
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="158dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <!-- Imagen del detalle -->
+        <ImageView
+            android:id="@+id/detalle_imagen"
+            android:layout_width="match_parent"
+            android:layout_height="152dp"
+            android:src="@drawable/ic_prueba_detalle"
+            android:transitionName="shared_image" />
+    </android.support.design.widget.AppBarLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_localizacion"
+        android:layout_width="@dimen/size_fab"
+        android:layout_height="@dimen/size_fab"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/ic_location_det"
+        app:borderWidth="0dp"
+        app:elevation="@dimen/fab_elevation"
+        app:layout_anchor="@id/app_bar"
+        app:layout_anchorGravity="bottom|right|end" />
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/scroll"
@@ -25,11 +52,10 @@
                 android:id="@+id/detalle_titulo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:text="Titulo"
-                android:textAlignment="center"
-                android:textColor="@color/green"
                 android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/green"
+                android:textSize="14sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -39,6 +65,7 @@
                 android:layout_marginTop="8dp"
                 android:text="Fecha"
                 android:textColor="?colorPrimary"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -47,13 +74,15 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="16dp"
                 android:text="DESCRIPCIÓN"
-                android:textColor="?colorPrimary" />
+                android:textColor="?colorPrimary"
+                android:textSize="12sp" />
 
             <TextView
                 android:id="@+id/detalle_descripcion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Descripción" />
+                android:text="Descripción"
+                android:textSize="12sp" />
 
             <RatingBar
                 android:id="@+id/detalle_rating"
@@ -71,42 +100,60 @@
                 android:id="@+id/detalle_autor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Autor" />
+                android:text="Autor"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:text="Comentarios:"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/green"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <EditText
+                    android:id="@+id/txtComentario"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0.98"
+                    android:fontFamily="sans-serif"
+                    android:hint="Escriba un Comentario..."
+                    android:inputType="textLongMessage"
+                    android:textSize="14sp" />
+
+                <Button
+                    android:id="@+id/btn_enviar"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="0.02"
+                    android:background="@drawable/ic_enviar"
+                    android:onClick="RegistrarComentario" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <include
+                    layout="@layout/content_comentarios"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
         </LinearLayout>
 
 
     </android.support.v4.widget.NestedScrollView>
 
-    <!-- App Bar -->
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="256dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
-
-        <!-- Imagen del detalle -->
-        <ImageView
-            android:id="@+id/detalle_imagen"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_prueba_detalle"
-            android:transitionName="shared_image" />
-
-
-    </android.support.design.widget.AppBarLayout>
-    <!-- FAB -->
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_localizacion"
-        android:layout_width="@dimen/size_fab"
-        android:layout_height="@dimen/size_fab"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/ic_location_det"
-        app:borderWidth="0dp"
-        app:elevation="@dimen/fab_elevation"
-        app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom|right|end" />
-
 
 </android.support.design.widget.CoordinatorLayout>
-
-

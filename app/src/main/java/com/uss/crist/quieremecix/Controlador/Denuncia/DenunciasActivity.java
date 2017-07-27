@@ -58,6 +58,7 @@ public class DenunciasActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(DenunciasActivity.this,Detalle_DenunciaActivity.class);
                 intent.putExtra(Constantes.KEY_ID,adapter.obtenerDenuncia(position).getId());
+                intent.putExtra(Constantes.KEY_ID_PERSONA,id_persona);
                 startActivity(intent);
 
             }
@@ -135,6 +136,9 @@ public class DenunciasActivity extends AppCompatActivity {
 
         return builder.create();
     }
+
+
+
 
 
     private void eliminarDenuncia(String id){
