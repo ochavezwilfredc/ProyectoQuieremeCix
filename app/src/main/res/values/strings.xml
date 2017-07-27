@@ -109,5 +109,8 @@
     <string name="app_name_adopciones">Listado de Adopciones</string>
     <string name="app_name_detalle_adopcion">Detalle de Adopción</string>
     <string name="app_name_nueva_adopcion">Nueva Adopción</string>
+    <string name="ultima_ubicacion_titulo">Esta fue la ultima ubicación de su mascota!</string>
+    <string name="app_name_ultima_ubi">Ultima Ubicación</string>
+    <string name="app_login_name">Iniciar Sesión / Registrarse</string>
 
 </resources>

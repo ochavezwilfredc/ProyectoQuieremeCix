@@ -17,6 +17,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.ImageRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.uss.crist.quieremecix.Controlador.Ubicacion.UbicacionArticuloActivity;
 import com.uss.crist.quieremecix.Modelo.VolleySingleton;
 import com.uss.crist.quieremecix.R;
 import com.uss.crist.quieremecix.Servicios.Constantes;
@@ -64,11 +65,14 @@ public class Detalle_DenunciaActivity extends AppCompatActivity {
         fab_localizacion = (FloatingActionButton)findViewById(R.id.fab_localizacion);
         peticionDatos();
 
+
         fab_localizacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Aca va la localizacion de la denuncia", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+               Intent intent = new Intent(Detalle_DenunciaActivity.this, UbicacionArticuloActivity.class);
+                intent.putExtra(Constantes.KEY_LATITUD,Double.parseDouble(denuncia.getLatitud()));
+                intent.putExtra(Constantes.KEY_LONGITUD,Double.parseDouble(denuncia.getLongitud()));
+                startActivity(intent);
 
             }
         });

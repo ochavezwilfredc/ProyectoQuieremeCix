@@ -139,12 +139,14 @@ public class AdopcionAdapter extends ArrayAdapter {
 
         return listItemView;
     }
+
+
     public Adopcion obtenerAdopcion(int post){
         // Obtener el item actual
         Adopcion item = adopciones.get(post);
-
         return item;
     }
+
 
     public List<Adopcion> parseJson(JSONObject jsonObject){
         // Variables locales

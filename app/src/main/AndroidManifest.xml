@@ -76,7 +76,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.uss.crist.quieremecix.Controlador.Ubicacion.UbicacionActivity" />
         </activity>
-
         <activity
             android:name=".Controlador.RegistrarActivity"
             android:label="@string/name_registrar_usuario"
@@ -85,18 +84,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.uss.crist.quieremecix.Controlador.RegistrarActivity" />
         </activity>
-
         <activity
             android:name=".Controlador.Denuncia.DenunciasActivity"
-            android:label="@string/nampe_denuncia"
-            android:parentActivityName=".Controlador.Denuncia.DenunciasActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.uss.crist.quieremecix.Controlador.Denuncia.DenunciasActivity" />
-            </activity>
+            android:label="@string/nampe_denuncia">
+        </activity>
 
-        <activity android:name=".Controlador.LoginActivity" />
+        <activity android:name=".Controlador.LoginActivity"
+            android:label="@string/app_login_name"
 
+            />
         <activity
             android:name=".Controlador.Denuncia.Detalle_DenunciaActivity"
             android:label="@string/app_name_detalle_denuncia"
@@ -105,7 +101,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.uss.crist.quieremecix.Controlador.Denuncia.Detalle_DenunciaActivity" />
         </activity>
-
         <activity
             android:name=".Controlador.Denuncia.NuevaDenunciaActivity"
             android:label="@string/app_name_nueva_denuncia"
@@ -136,25 +131,32 @@
             android:parentActivityName=".Controlador.Adopcion.AdopcionActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.uss.crist.quieremecix.Controlador.Adopcion.AdopcionActivity">
-            </meta-data>
-            </activity>
-
-        <activity android:name=".Controlador.Adopcion.Detalle_AdopcionActivity"
+                android:value="com.uss.crist.quieremecix.Controlador.Adopcion.AdopcionActivity"></meta-data>
+        </activity>
+        <activity
+            android:name=".Controlador.Adopcion.Detalle_AdopcionActivity"
             android:label="@string/app_name_detalle_adopcion"
             android:parentActivityName=".Controlador.Adopcion.Detalle_AdopcionActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.uss.crist.quieremecix.Controlador.Adopcion.Detalle_AdopcionActivity">
-            </meta-data>
-            </activity>
-
-        <activity android:name=".Controlador.Adopcion.NuevaAdopcionActivity"
+                android:value="com.uss.crist.quieremecix.Controlador.Adopcion.Detalle_AdopcionActivity"></meta-data>
+        </activity>
+        <activity
+            android:name=".Controlador.Adopcion.NuevaAdopcionActivity"
             android:label="@string/app_name_nueva_adopcion"
             android:parentActivityName=".Controlador.Adopcion.NuevaAdopcionActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.uss.crist.quieremecix.Controlador.Adopcion.NuevaAdopcionActivity" />
+        </activity>
+        <activity
+            android:name=".Controlador.Ubicacion.UbicacionArticuloActivity"
+            android:label="@string/app_name_ultima_ubi"
+            android:parentActivityName=".Controlador.Ubicacion.UbicacionArticuloActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.uss.crist.quieremecix.Controlador.Ubicacion.UbicacionArticuloActivity" />
+
         </activity>
     </application>
 

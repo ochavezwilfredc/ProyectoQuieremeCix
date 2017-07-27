@@ -1,5 +1,7 @@
 package com.uss.crist.quieremecix.Servicios;
 
+import java.math.BigInteger;
+
 /**
  * Clase que contiene los códigos usados en "I Wish" para
  * mantener la integridad en las interacciones entre actividades
@@ -41,6 +43,7 @@ public class Constantes {
     public static final String GET_ADOPCIONID= "http://" + IP + PUERTO_HOST + "/quieremeCix/consultar_adopcionID.php?id=";
 
     public static final String INSERTAR_ADOPCION = "http://" + IP + PUERTO_HOST + "/quieremeCix/registrar_adopcion.php";
+    public static final String ELIMINAR_ARTICULOID = "http://" + IP + PUERTO_HOST + "/quieremeCix/eliminar_articuloID.php?id=";
 
 
 
@@ -77,4 +80,6 @@ public class Constantes {
 
     public static final String KEY_CODIGO = "codigo" ;
     public static final String KEY_TIPO_ARTICULO ="tipo_articulo" ;
+
+
 }

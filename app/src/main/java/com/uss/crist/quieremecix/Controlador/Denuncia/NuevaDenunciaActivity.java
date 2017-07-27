@@ -294,8 +294,8 @@ public class NuevaDenunciaActivity extends AppCompatActivity implements View.OnC
                 String raza =  textoRaza.getText().toString().trim();
                 String color =  textoColor.getText().toString().trim();
                 String tipo_mascota =  tipo_m;
-                String longitud="-6.753856875426512";//ejemplo aca agregamos lat y long
-                String latitud ="-79.87139403820038";
+                String longitud="-79.88615021109581";//ejemplo aca agregamos lat y long
+                String latitud ="-6.795210094984799";
                 String descripcion =  textoDescripcion.getText().toString().trim();
                 String nombre_foto =  "animal_denuncia"+servicios.codigoAleatorio()+".png";
 

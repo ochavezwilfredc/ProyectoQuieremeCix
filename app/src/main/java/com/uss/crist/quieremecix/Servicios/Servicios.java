@@ -4,6 +4,7 @@ package com.uss.crist.quieremecix.Servicios;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Patterns;
+import android.view.Gravity;
 import android.widget.Toast;
 
 import java.util.Random;
@@ -90,7 +91,11 @@ public class Servicios {
 
 
     public void mensaje(Activity activity,String m){
-        Toast.makeText(activity,m,Toast.LENGTH_LONG).show();
+        Toast toast2 =
+                Toast.makeText(activity,
+                        m, Toast.LENGTH_SHORT);
+        toast2.setGravity(Gravity.CENTER|Gravity.CENTER,0,0);
+        toast2.show();
 
     }
 
